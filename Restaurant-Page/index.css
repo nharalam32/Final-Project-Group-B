@@ -16,8 +16,9 @@ body {
 #header {
     display: flex;
     background-color: white;
-    padding-top: 1cm;
-    padding-bottom: .75cm;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 1;
 }
 #header-relocatelinks ul {
     display: flex;
@@ -33,17 +34,20 @@ body {
     border-bottom: 3px solid #C92027;
 }
 #heading-header {
-    margin-left: 3.9cm;
+    margin-left: 3cm;
     color: #C92027;
     font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 26px;
 }
 #signin-but {
-    margin-left: 12cm;
+    margin-left: 11cm;
     margin-right: 2cm;
 }
 #sign-but {
     width: 4cm;
-    height: 1.2cm;
+    height: 1cm;
     border-radius: 1cm;
     border: 0;
     background-color: red;
@@ -71,6 +75,7 @@ a {
     padding-top: 8cm;
     font-size: 30px;
     color: white;
+
 }
 #mid-body h2 {
     margin-left: 5cm;
