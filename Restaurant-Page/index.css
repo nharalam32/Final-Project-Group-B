@@ -63,11 +63,13 @@ a {
     color: black;
 }
 #midpage {
-    background-image: url(background.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url(background.jpg);
+    background-image: linear-gradient();
     background-repeat: no-repeat;
     background-size: 100%;
     height: 20cm;
     color: white;
+    
 }
 
 #mid-body h1 {
