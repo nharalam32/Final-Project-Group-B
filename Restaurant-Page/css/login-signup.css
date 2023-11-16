@@ -14,12 +14,16 @@ html {
 }
 
 h1 {
-    color: #C92027;
     text-align: center;
     text-transform: uppercase;
     font-weight: 800;
 }
 
+h1 a {
+    text-decoration: none;
+    color: #C92027;
+}
+
 header {
-    border: 1px solid;
+    border-bottom: 1px solid rgb(163, 163, 163);
 }
