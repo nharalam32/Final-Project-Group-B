@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: Helvetica;
+    src: url('fonts/Helvetica-Black\ Black.ttf') format(ttf);
+}
+html {
+    font-family: Helvetica;
+}
 body {
     background-color: #C92027;
 }
@@ -23,8 +30,9 @@ body {
     font-size: 16px;
 }
 #heading-header {
-    margin-left: 4cm;
+    margin-left: 3.9cm;
     color: #C92027;
+    font-size: 24px;
 }
 #signin-but {
     margin-left: 12cm;
