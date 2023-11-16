@@ -20,9 +20,11 @@ body {
     margin-right: 1cm;
     margin-top: .25cm;
     margin-left: 1cm ;
+    font-size: 16px;
 }
 #heading-header {
     margin-left: 4cm;
+    color: #C92027;
 }
 #signin-but {
     margin-left: 12cm;
