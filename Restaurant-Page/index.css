@@ -47,3 +47,23 @@ a {
     text-decoration: none;
     color: black;
 }
+#mid-body {
+    color: white;
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    height: 20cm;
+    background-size: 75%;
+    opacity: 1;
+    scale: 1;
+    filter: brightness(1);
+}
+#mid-body h1 {
+    margin-left: 5cm;
+    padding-top: 7cm;
+    font-size: 30px;
+    color: white;
+}
+#mid-body h2 {
+    margin-left: 5cm;
+    font-size: 20px;
+}
