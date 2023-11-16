@@ -29,6 +29,9 @@ body {
     margin-left: 1cm ;
     font-size: 16px;
 }
+#header-relocatelinks li:hover {
+    border-bottom: 3px solid #C92027;
+}
 #heading-header {
     margin-left: 3.9cm;
     color: #C92027;
@@ -55,23 +58,37 @@ a {
     text-decoration: none;
     color: black;
 }
-#mid-body {
-    color: white;
+#midpage {
     background-image: url(background.jpg);
     background-repeat: no-repeat;
+    background-size: 100%;
     height: 20cm;
-    background-size: 75%;
-    opacity: 1;
-    scale: 1;
-    filter: brightness(1);
+    color: white;
 }
+
 #mid-body h1 {
     margin-left: 5cm;
-    padding-top: 7cm;
+    padding-top: 8cm;
     font-size: 30px;
     color: white;
 }
 #mid-body h2 {
     margin-left: 5cm;
     font-size: 20px;
+}
+#mid-button {
+    width: 4;
+    height: 1.2;
+    background-color: #C92027;
+    float: right;
+    margin-right: 10cm;
+    width: 6cm;
+    height: 2cm;
+    border: 2px solid white;
+    color: white;
+    margin-top: 8.5cm;
+    margin-left: 5.5cm;
+}
+#footer {
+    background-color: black;
 }
