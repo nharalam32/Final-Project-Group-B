@@ -63,7 +63,7 @@ a {
     color: black;
 }
 #midpage {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url(background.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url(../Images/background.jpg);
     background-image: linear-gradient();
     background-repeat: no-repeat;
     background-size: 100%;
@@ -96,6 +96,28 @@ a {
     margin-top: 8.5cm;
     margin-left: 5.5cm;
 }
+#aboutus {
+    padding-top: 1cm;
+    background-color: white;
+}
+#firsthalf {
+    width: 50%;
+    color: #C92027;
+}
+#heading {
+    padding: 3cm;
+}
+#missionstatement {
+    margin-top: 2cm;
+}
 #footer {
     background-color: black;
+}
+#caption {
+    text-align: center;
+    align-items: center;
+}
+#footer {
+    color: #C92027;
+    padding: 3cm;
 }
