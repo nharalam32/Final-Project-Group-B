@@ -40,11 +40,34 @@ h2 {
     text-transform: uppercase;
     font-weight: 800;
     margin: 20px;
+    font-size: 45px;
 }
 
 input {
     margin-bottom: 15px;
     padding: 10px;
-    width: 300px;
+    width: 350px;
     border: 2px solid gray;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 350px;
+    padding: 20px;
+    background-color: #C92027;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+p{
+    font-size: 13px;
+}
+
+p a {
+    color: #C92027;
 }
