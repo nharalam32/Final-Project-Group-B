@@ -99,13 +99,28 @@ a {
 #aboutus {
     padding-top: 1cm;
     background-color: white;
+    
 }
 #firsthalf {
-    width: 50%;
+    
     color: #C92027;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+iframe {
+    width: 100%;
+    height: 10cm;
+    border: 0;
+    padding-top: 3cm;
+}
+#secondhalf {
+    flex: 1;
+    padding: 10px;
 }
 #heading {
     padding: 3cm;
+    flex: 1;
 }
 #missionstatement {
     margin-top: 2cm;
