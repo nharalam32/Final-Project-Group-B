@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: Helvetica;
+    src: url('fonts/Helvetica-Black\ Black.ttf') format(ttf);
+}
+html {
+    font-family: Helvetica;
+}
+body {
+    background-color: #C92027;
+}
+#header {
+    display: flex;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+#header-relocatelinks ul {
+    display: flex;
+    list-style-type: none;
+}
+#header-relocatelinks li {
+    margin-right: 1cm;
+    margin-top: .25cm;
+    margin-left: 1cm ;
+    font-size: 16px;
+}
+#header-relocatelinks li:hover {
+    border-bottom: 3px solid #C92027;
+}
+#heading-header {
+    margin-left: 3cm;
+    color: #C92027;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 26px;
+}
+#signin-but {
+    margin-left: 11cm;
+    margin-right: 2cm;
+}
+#sign-but {
+    width: 4cm;
+    height: 1cm;
+    border-radius: 1cm;
+    border: 0;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+}
+button {
+    cursor: pointer;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#pleasure-heading {
+    text-align: center;
+    margin-top: 2cm;
+    color: white;
+}
+#receipt-layout {
+    background-color: lightgrey;
+    margin: 0 auto;
+    width: 40%;
+    height: 20cm;
+    margin-top: 2cm;
+    padding-top: .5cm;
+    border-radius: .25cm;
+}
+#receipt-header p {
+    text-align: center;
+    font-size: 12px;
+}
+#departure-prompt  {
+    margin-top: 1cm;
+    text-align: center;
+    color: white;
+    margin-bottom: 1cm;
+}
+#footer {
+    background-color: black;
+}
+#caption {
+    text-align: center;
+    align-items: center;
+}
+#footer {
+    color: white;
+    padding: 1cm;
+    padding-top: 1cm;
+}
+#foot {
+    display: flex;
+}
+#leftside {
+    margin-top: 1.5cm;
+    font-size: 25px;
+}
+#footer li {
+    list-style-type: none;
+    margin-left: 23cm;
+    margin-bottom: 1cm;
+    color: white;
+    font-size: 20px;
+}
+#copyrightbs {
+    background-color: #C92027;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    color: white;
+}
