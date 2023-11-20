@@ -31,7 +31,8 @@
                 
                 if (email !== '' && password !== '') {
                     if (email === "user@example.com" && password === "password123") {
-                        window.location.href = "homepage.html";
+                        localStorage.setItem("isLoggedIn", "true");
+                        window.location.href = "menu.html";
                     } else if (email === "admin@example.com" && password === "admin123") {
                         window.location.href = "admin-access.html";
                     } else {
