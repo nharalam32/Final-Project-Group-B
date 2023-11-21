@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: Helvetica;
+    src: url('fonts/Helvetica-Black\ Black.ttf') format(ttf);
+}
+html {
+    font-family: Helvetica;
+}
+body {
+    background-color: #C92027;
+    color: white;
+}
+#header {
+    display: flex;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+#header-relocatelinks ul {
+    display: flex;
+    list-style-type: none;
+}
+#header-relocatelinks li {
+    margin-right: 1cm;
+    margin-top: .25cm;
+    margin-left: 1cm ;
+    font-size: 16px;
+}
+#header-relocatelinks li:hover {
+    border-bottom: 3px solid #C92027;
+}
+#heading-header {
+    margin-left: 3cm;
+    color: #C92027;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 26px;
+}
+#signin-but {
+    margin-left: 11cm;
+    margin-right: 2cm;
+}
+#sign-but {
+    width: 4cm;
+    height: 1cm;
+    border-radius: 1cm;
+    border: 0;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+}
+button {
+    cursor: pointer;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#menu-heading {
+    margin-top: 3cm;
+    text-align: center;
+}
+h2 {
+    margin-left: 2cm;
+    margin-top: 2cm;
+}
+img {
+    width: 3cm;
+    height: 4cm;
+    background: transparent;
+    border: 0;
+    border-radius: 2cm;
+}
+#item {
+    margin-top: .5cm;
+    margin-left: 2cm;
+    
+}
+#beverage-img {
+    display: flex;
+}
+h4 {
+    margin-top: 4px;
+}
