@@ -17,13 +17,13 @@
             <form>
                 <input type="text" id="name" name="name" placeholder="Name">
                 <br>
-                <input type="text" id="email" name="email" placeholder="Email">
+                <input type="email" id="email" name="email" placeholder="Email">
                 <br>
                 <input type="password" id="password" name="password" placeholder="Password">
                 <br>
                 <input type="password" id="confirmpassword" name="confirmpassword" placeholder=" Confirm Password">
                 <br>
-                <button type="button" onclick="signUp()">Log in</button>
+                <button type="button" id="loginButton" onclick="signUp()">Log in</button>
             </form>
             <p>
                 Already have an account? 
@@ -31,6 +31,26 @@
             </p>
         </main>
         <script>
+            var nameInput = document.getElementById("name");
+            var emailInput = document.getElementById("email");
+            var passwordInput = document.getElementById("password");
+            var confirmPasswordInput = document.getElementById("confirmpassword");
+            var loginButton = document.getElementById("loginButton");
+
+            nameInput.addEventListener("input", updateButtonColor);
+            emailInput.addEventListener("input", updateButtonColor);
+            passwordInput.addEventListener("input", updateButtonColor);
+            confirmPasswordInput.addEventListener("input", updateButtonColor);
+
+            function updateButtonColor() {
+                if (nameInput.value !== "" && emailInput.value !== "" && passwordInput.value !== "" && passwordInput.value === confirmPasswordInput.value) {
+                    loginButton.style.backgroundColor = "#C92027";
+                    loginButton.style.cursor = "pointer";
+                } else {
+                    loginButton.style.cursor = "not-allowed"
+                }
+            }
+
             function signUp() {
                 var name = document.getElementById('name').value;
                 var email = document.getElementById('email').value;

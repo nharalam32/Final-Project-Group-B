@@ -14,22 +14,38 @@
         </header>
         <main>
             <h2>Log in</h2>
-            <input type="text" id="email" name="email" placeholder="Email">
+            <input type="email" id="email" name="email" placeholder="Email">
             <br>
             <input type="password" id="password" name="password" placeholder="Password">
             <br>
-            <button type="button" onclick="login()">Log in</button>
+            <button type="button" id="loginButton" onclick="login()">Log in</button>
             <p>
                 Don't have an account? 
                 <a href="signup.html">Sign up</a>
             </p>
         </main>
         <script>
+            var emailInput = document.getElementById("email");
+            var passwordInput = document.getElementById("password");
+            var loginButton = document.getElementById("loginButton");
+
+            emailInput.addEventListener("input", updateButtonColor);
+            passwordInput.addEventListener("input", updateButtonColor);
+
+            function updateButtonColor() {
+                if (emailInput.value !== "" && passwordInput.value !== "") {
+                    loginButton.style.backgroundColor = "#C92027";
+                    loginButton.style.cursor = "pointer";
+                } else {
+                    loginButton.style.cursor = "not-allowed"
+                }
+            }
+
             function login() {
-                var email = document.getElementById('email').value;
-                var password = document.getElementById('password').value;
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
                 
-                if (email !== '' && password !== '') {
+                if (email !== "" && password !== "") {
                     if (email === "user@example.com" && password === "password123") {
                         localStorage.setItem("isLoggedIn", "true");
                         window.location.href = "menu.html";
@@ -39,7 +55,7 @@
                         alert("Incorrect email or password. Please try again.");
                     }
                 } else {
-                    alert('Please fill out both username and password fields.');
+                    alert("Please fill out both username and password fields.");
                 }   
             }
         </script>
