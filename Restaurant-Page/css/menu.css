@@ -74,8 +74,6 @@ h2 {
 img {
     width: 3cm;
     height: 4cm;
-    background: transparent;
-    border: 0;
     border-radius: 2cm;
 }
 #item {
@@ -88,4 +86,51 @@ img {
 }
 h4 {
     margin-top: 4px;
+}
+#buritem {
+    margin-top: .5cm;
+    margin-left: 2cm;
+    
+}
+#addcart {
+    width: 3cm;
+    height: 1cm;
+    background-color: white;
+    border: 0;
+    border-radius: 3px;
+    margin-top: .5cm;
+    color: #C92027;
+}
+#footer {
+    background-color: black;
+}
+#caption {
+    text-align: center;
+    align-items: center;
+}
+#footer {
+    color: white;
+    padding: 1cm;
+    padding-top: 1cm;
+}
+#foot {
+    display: flex;
+}
+#leftside {
+    margin-top: 1.5cm;
+    font-size: 25px;
+}
+#footer li {
+    list-style-type: none;
+    margin-left: 23cm;
+    margin-bottom: 1cm;
+    color: #C92027;
+    font-size: 20px;
+}
+#copyrightbs {
+    background-color: white;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    color: black;
 }
