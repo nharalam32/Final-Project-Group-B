@@ -92,6 +92,9 @@ h4 {
     margin-left: 2cm;
     
 }
+#cart-container {
+    padding-top: 2cm;
+}
 #addcart {
     width: 3cm;
     height: 1cm;
@@ -100,6 +103,12 @@ h4 {
     border-radius: 3px;
     margin-top: .5cm;
     color: #C92027;
+}
+#cart-awaiting-fill {
+    background: lightgrey;
+    text-align: center;
+    margin: 0 auto;
+
 }
 #footer {
     background-color: black;
