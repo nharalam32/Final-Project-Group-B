@@ -182,7 +182,7 @@
             addToCartButtons.forEach(function (button) {
                 button.addEventListener("click", function () {
                     var itemName = this.parentNode.querySelector("h4").textContent;
-                    var priceElement = this.parentNode.querySelector("h4[id$='-price']"); // Assumes a specific pattern in id for price
+                    var priceElement = this.parentNode.querySelector("h4[id$='-price']"); 
                     var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
                     var existingItem = cart.find(item => item.name === itemName);
     
