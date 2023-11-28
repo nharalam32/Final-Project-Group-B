@@ -66,11 +66,7 @@
     <script>
             var urlParams = new URLSearchParams(window.location.search);
         var cartData = urlParams.get('cart');
-
-        // Parse the JSON-encoded cart data
         var cart = JSON.parse(decodeURIComponent(cartData));
-
-        // Display cart data on the receipt page
         var receiptContent = document.getElementById('receipt-content');
         cart.forEach(function (item) {
             receiptContent.innerHTML += `<p>${item.name} - Price: $${item.price.toFixed(2)} - Quantity: ${item.quantity}</p>`;
