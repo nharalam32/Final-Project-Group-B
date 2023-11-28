@@ -63,11 +63,13 @@ a {
     color: black;
 }
 #midpage {
-    background-image: url(background.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url(../Images/background.jpg);
+    background-image: linear-gradient();
     background-repeat: no-repeat;
     background-size: 100%;
     height: 20cm;
     color: white;
+    
 }
 
 #mid-body h1 {
@@ -94,6 +96,64 @@ a {
     margin-top: 8.5cm;
     margin-left: 5.5cm;
 }
+#aboutus {
+    padding-top: 1cm;
+    background-color: white;
+    
+}
+#firsthalf {
+    
+    color: #C92027;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+iframe {
+    width: 100%;
+    height: 10cm;
+    border: 0;
+    padding-top: 3cm;
+}
+#secondhalf {
+    flex: 1;
+    padding: 10px;
+}
+#heading {
+    padding: 3cm;
+    flex: 1;
+}
+#missionstatement {
+    margin-top: 2cm;
+}
 #footer {
     background-color: black;
+}
+#caption {
+    text-align: center;
+    align-items: center;
+}
+#footer {
+    color: white;
+    padding: 1cm;
+    padding-top: 1cm;
+}
+#foot {
+    display: flex;
+}
+#leftside {
+    margin-top: 1.5cm;
+    font-size: 25px;
+}
+#footer li {
+    list-style-type: none;
+    margin-left: 23cm;
+    margin-bottom: 1cm;
+    color: #C92027;
+    font-size: 20px;
+}
+#copyrightbs {
+    background-color: #C92027;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
 }
