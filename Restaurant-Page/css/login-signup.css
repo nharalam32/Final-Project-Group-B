@@ -75,3 +75,30 @@ p{
 p a {
     color: #C92027;
 }
+
+.foot {
+    margin-top: 196px;
+    height: 150px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer li {
+    list-style: none;
+    color: white;
+    padding: 5px 0px;
+}
+
+.copyright {
+    background-color: #C92027;
+    color: white;
+    padding: 10px;
+}
