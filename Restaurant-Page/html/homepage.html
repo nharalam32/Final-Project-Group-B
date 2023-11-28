@@ -12,16 +12,16 @@
             <div id="header-relocatelinks">
                 <ul>
                     <a href="menu.html"><li>Menu</li></a>
-                    <a href=""><li>Locations</li></a>
+                    <a href="#aboutus"><li>Locations</li></a>
                     <a href="#aboutus"><li>About Us</li></a>
-                    <a href="#footer"><li>Contact Us</li></a>
+                    <a><li>Contact Us</li></a>
                 </ul>
             </div>
             <div id="header-companyname">
                 <h1 id="heading-header">Three Guys</h1>
             </div>
             <div id="signin-but">
-                <button id="sign-but" type="button">Sign In</button>
+                <button id="sign-but" type="button" onclick=" redirect_signup()">Sign In</button>
             </div>
         </div>
     </section>
@@ -32,7 +32,7 @@
             <h2>With Three Guys</h2>
         </div>
         <div>
-            <button id="mid-button" type="button" >Order Now</button>
+            <button id="mid-button" type="button" onclick="redirect_menu()">Order Now</button>
         </div>
     </section>
     <section id="aboutus">
@@ -46,7 +46,7 @@
                 <h2>We come to know and love</h2>
                 <p id="missionstatement">Founded in 2023, three guys from Lancaster, Pennsylvania with a dream to create the
                 most savoring and tasteful burgers and appetizers.<br> With this goal in mind<br>
-                we started from scratch testing numerous cobonations of spices. Until we found
+                we started from scratch testing numerous combonations of spices. Until we found
                 the perfect concoction for our beloved customers to enjoy.
                 </p>
                
@@ -76,4 +76,14 @@
             <p>@copyright 2023 THREE GUYS LLC</p>
         </div>
     </section>
+    <script>
+    
+    function redirect_menu () {
+        window.location.href="../html/menu.html"
+    } 
+    function redirect_signup () {
+        window.location.href="../html/login.html"
+    }
+    
+    </script>
 </body>

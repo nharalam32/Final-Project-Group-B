@@ -84,6 +84,16 @@ img {
 #beverage-img {
     display: flex;
 }
+#menu-items button {
+    width: 4cm;
+    height: 1cm;
+    border-radius: 1cm;
+    border: 0;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    margin-top: 1cm;
+}
 h4 {
     margin-top: 4px;
 }
@@ -109,6 +119,58 @@ h4 {
     text-align: center;
     margin: 0 auto;
 
+}
+#cart {
+    margin: 20px;
+    background-color: white;
+    color: #C92027;
+    max-width: 700px;
+    margin: 0 auto; 
+    border: 2px solid #ddd;
+    padding: 10px;
+    margin-bottom: 1cm;
+    padding-top: 1cm;
+    padding-bottom: 1cm;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-bottom: 1cm;
+    height: 2cm;
+}
+.cart-item input {
+    height: .25cm;
+    width: 1.5cm;
+    text-align: center;
+    padding: 10px;
+    border: 0;
+}
+.cart-item button {
+    width: 3cm;
+    height: 1cm;
+    background-color: white;
+    border: 0;
+    border-radius: 3px;
+    margin-top: .5cm;
+    color: #C92027;
+    margin-left: 3cm;
+   
+}
+
+
+.cart-item {
+    margin-bottom: 10px;
+}
+
+.item-quantity {
+    width: 40px; /* Adjust the width of the quantity input */
+    margin: 0 10px; /* Add some spacing between the quantity input and the item name */
+}
+
+.remove-item {
+    cursor: pointer;
 }
 #footer {
     background-color: black;

@@ -63,5 +63,14 @@
             <p>@copyright 2023 THREE GUYS LLC</p>
         </div>
     </section>
+    <script>
+            var urlParams = new URLSearchParams(window.location.search);
+        var cartData = urlParams.get('cart');
+        var cart = JSON.parse(decodeURIComponent(cartData));
+        var receiptContent = document.getElementById('receipt-content');
+        cart.forEach(function (item) {
+            receiptContent.innerHTML += `<p>${item.name} - Price: $${item.price.toFixed(2)} - Quantity: ${item.quantity}</p>`;
+        });
+    </script>
 </body>
 </html>
