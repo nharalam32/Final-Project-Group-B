@@ -153,7 +153,7 @@
             <h2 style="text-align: center; margin-bottom: 2cm; margin-left: -.25cm;">CART</h2>
         </div>
         <div id="cart-awaiting-fill">
-            <button type="button" id="addcart" style="width: 8cm; margin-bottom: 1cm;">PROCEED TO PAYMENT</button>
+            <button type="button" id="addcart" onclick="relocate()" style="width: 8cm; margin-bottom: 1cm;">PROCEED TO PAYMENT</button>
         </div>
     </section>
     <section id="footer">
@@ -248,6 +248,9 @@
                 console.log("Items in the cart:", cart);
             });
         });
+        function relocate () {
+            window.location.href="payment.html"
+        }
     </script>
     
 </body>
