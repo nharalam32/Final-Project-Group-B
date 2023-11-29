@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/payment.css">
+    <title>Order Summary</title>
+</head>
     <style>
         
         body {
@@ -91,7 +93,7 @@
     <main>
         <section class="order-summary">
             <h2>Order Summary</h2>
-            <!-- Display order items and total -->
+            
             <div class="item">
                 <p>Item Name 1</p>
                 <p>$10.00</p>
@@ -100,7 +102,7 @@
                 <p>Item Name 2</p>
                 <p>$8.00</p>
             </div>
-            <!-- More items -->
+            
             <div class="total">
                 <p>Total:</p>
                 <p>$18.00</p>
@@ -110,8 +112,11 @@
         <section class="payment-details">
             <h2>Payment Details</h2>
             <form>
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" placeholder="Enter card number" required>
+                <div>
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" placeholder="Enter card number" required>
+                </div>
+                
                 
                 <label for="expiration-date">Expiration Date:</label>
                 <input type="text" id="expiration-date" placeholder="MM/YY" required>
