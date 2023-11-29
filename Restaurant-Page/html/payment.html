@@ -84,80 +84,45 @@
     </style>
 </head>
 <body>
-    <section>
-        <div id="header">
-            <div id="header-relocatelinks">
-                <ul>
-                    <a href="menu.html"><li>Menu</li></a>
-                    <a href=""><li>Locations</li></a>
-                    <a href="#aboutus"><li>About Us</li></a>
-                    <a href="#footer"><li>Contact Us</li></a>
-                </ul>
-            </div>
-            <div id="header-companyname">
-                <h1 id="heading-header">Three Guys</h1>
-            </div>
-            <div id="signin-but">
-                <button id="sign-but" type="button">Sign In</button>
-            </div>
-        </div>
-    </section>
-    <!-- <div id="checkout-head">
-        <h2>CHECKOUT</h2>
-        <h3 style="font-size: 20px; margin-top: 1cm;">INPUT CONTACT INFO BELOW</h3>
-    </div>
-    <section id="checkout-form">
-        <form action="" id="notificationinfo">
-            <div id="name">
-                <input type="text" placeholder="First name">
-                <input type="text" placeholder="Lastname">
-            </div>
-            <div id="contactinfo">
-                <input type="text"  placeholder="E-mail">
-                <input type="text" placeholder="Phone number">
-            </div>
-        </form>
-        <h3 style="font-size: 20px; margin-top: 1cm; padding-left: 3cm; color: white; ">INPUT CARD INFO BELOW</h3>
-        <form action="" id="paymentinfo">
-            <div id="cardname">
-                <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx">
-                <input type="text" placeholder="Name on card">
-            </div>
-            <div id="cardnum">
-                <input type="text" placeholder="mm/yy">
-                <input type="text" placeholder="CVV">
-            </div>
-        </form>
-    </section> -->
-    <section id="overview">
-        <div>
-            <h1 id="decloration">ORDER SUMMARY</h1>
-        </div>
-        <div id="orderoverview">
-            <h2>ORDER OVERVIEW</h2>
-        </div>
-    </section>
-    <section id="confirm">
-        <button type="button" id="confirmation-but">Confirm order</button>
-    </section>
-    <section id="footer">
-        <div id="foot">
-            <div id="leftside">
-                <h1>THREE GUYS</h1>
-            </div>
-            <div id="rightside">
-                <ul id="footerlist">
-                    <a href="#aboutus"><li>LOCATIONS</li></a>
-                    <a href=""><li>WE'RE HIRING</li></a>
-                    <a href="#aboutus"><li>THE THREE GUYS STORY</li></a>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="copyrightbs">
-        <div>
-            <p>@copyright 2023 THREE GUYS LLC</p>
-        </div>
-    </section>
+    <header>
+        <a href="../html/homepage.html"><h1>THREE GUYS</h1></a>
+    </header>
+
+    <main>
+        <section class="order-summary">
+            <h2>Order Summary</h2>
+        </section>
+
+        <section class="payment-details">
+            <h2>Payment Details</h2>
+            <form>
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" placeholder="Enter card number" required>
+                
+                <label for="expiration-date">Expiration Date:</label>
+                <input type="text" id="expiration-date" placeholder="MM/YY" required>
+                
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="CVV" required>
+                
+                <label for="name">Name on Card:</label>
+                <input type="text" id="name" placeholder="Name on card" required>
+
+                <label for="tip-amount">Tip:</label>
+                <input type="number" id="tip-amount" placeholder="Enter tip amount">
+
+                <div class="total">
+                    <p>Total with Tip:</p>
+                    <p>$18.00</p>
+                </div>
+
+                <button type="submit">Complete Order</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Restaurant. All rights reserved.</p>
+    </footer>
 </body>
 </html>
