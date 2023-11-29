@@ -23,19 +23,32 @@
                 <br>
                 <input type="password" id="confirmpassword" name="confirmpassword" placeholder=" Confirm Password">
                 <br>
-                <button type="button" id="loginButton" onclick="signUp()">Log in</button>
+                <button type="button" id="signUpButton" onclick="signUp()">Sign up</button>
             </form>
             <p>
                 Already have an account? 
                 <a href="login.html">Log in</a>
             </p>
         </main>
+        <footer>
+            <div class="foot">
+                <h1>THREE GUYS</h1>
+                <ul>
+                    <a href="#aboutus"><li>LOCATIONS</li></a>
+                    <a href=""><li>WE'RE HIRING</li></a>
+                    <a href="#aboutus"><li>THE THREE GUYS STORY</li></a>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Three Guys Enterprises, LLC</p>
+            </div>
+        </footer>
         <script>
             var nameInput = document.getElementById("name");
             var emailInput = document.getElementById("email");
             var passwordInput = document.getElementById("password");
             var confirmPasswordInput = document.getElementById("confirmpassword");
-            var loginButton = document.getElementById("loginButton");
+            var signUpButton = document.getElementById("signUpButton");
 
             nameInput.addEventListener("input", updateButtonColor);
             emailInput.addEventListener("input", updateButtonColor);
@@ -44,10 +57,10 @@
 
             function updateButtonColor() {
                 if (nameInput.value !== "" && emailInput.value !== "" && passwordInput.value !== "" && passwordInput.value === confirmPasswordInput.value) {
-                    loginButton.style.backgroundColor = "#C92027";
-                    loginButton.style.cursor = "pointer";
+                    signUpButton.style.backgroundColor = "#C92027";
+                    signUpButton.style.cursor = "pointer";
                 } else {
-                    loginButton.style.cursor = "not-allowed"
+                    signUpButton.style.cursor = "not-allowed"
                 }
             }
 
@@ -57,14 +70,21 @@
                 var password = document.getElementById('password').value;
                 var confirmPassword = document.getElementById('confirmpassword').value;
                 
+                var storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+                var newAccount = {
+                name: name,
+                email: email,
+                password: password
+                };
+
                 if (email !== '' && password !== '' && name !== '') {
                     if (password === confirmPassword) {
-                        localStorage.setItem("name", name);
-                        localStorage.setItem("email", email);
-                        localStorage.setItem("password", password);
+                        storedAccounts.push(newAccount);
+                        localStorage.setItem("accounts", JSON.stringify(storedAccounts));
                         alert("Account created");
                         localStorage.setItem("isLoggedIn", "true");
-                        window.location.href = "menu.html";
+                        window.location.href = "homepage.html";
                     } else {
                         alert('Passwords do not match.');
                     }

@@ -24,6 +24,19 @@
                 <a href="signup.html">Sign up</a>
             </p>
         </main>
+        <footer>
+            <div class="foot">
+                <h1>THREE GUYS</h1>
+                <ul>
+                    <a href="#aboutus"><li>LOCATIONS</li></a>
+                    <a href=""><li>WE'RE HIRING</li></a>
+                    <a href="#aboutus"><li>THE THREE GUYS STORY</li></a>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Three Guys Enterprises, LLC</p>
+            </div>
+        </footer>
         <script>
             var emailInput = document.getElementById("email");
             var passwordInput = document.getElementById("password");
@@ -45,10 +58,16 @@
                 var email = document.getElementById("email").value;
                 var password = document.getElementById("password").value;
                 
+                var storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+                var matchingAccount = storedAccounts.find(function (account) {
+                    return account.email === email && account.password === password;
+                });
+
                 if (email !== "" && password !== "") {
-                    if (email === "user@example.com" && password === "password123") {
+                    if (matchingAccount) {
                         localStorage.setItem("isLoggedIn", "true");
-                        window.location.href = "menu.html";
+                        window.location.href = "homepage.html";
                     } else if (email === "admin@example.com" && password === "admin123") {
                         window.location.href = "admin-access.html";
                     } else {

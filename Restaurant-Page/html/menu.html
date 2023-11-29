@@ -175,38 +175,40 @@
             <p>@copyright 2023 THREE GUYS LLC</p>
         </div>
     </section>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var cart = [];
-            var addToCartButtons = document.querySelectorAll(".addcart");
-            addToCartButtons.forEach(function (button) {
-                button.addEventListener("click", function () {
-                    var itemName = this.parentNode.querySelector("h4").textContent;
-                    var priceElement = this.parentNode.querySelector("h4[id$='-price']"); 
-                    var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
-                    var existingItem = cart.find(item => item.name === itemName);
-    
-                    if (existingItem) {
-                        existingItem.quantity++;
-                    } else {
-                        cart.push({
-                            name: itemName,
-                            price: itemPrice,
-                            quantity: 1
-                        });
-                    }
-                    displayCart();
-                });
-    
+<!-- Your HTML code ... -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var cart = [];
+
+        var addToCartButtons = document.querySelectorAll(".addcart");
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var itemName = this.parentNode.querySelector("h4").textContent;
+                var priceElement = this.parentNode.querySelector("h4[id$='-price']");
+                var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
+                var existingItem = cart.find(item => item.name === itemName);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        name: itemName,
+                        price: itemPrice,
+                        quantity: 1
+                    });
+                }
+                displayCart();
             });
-    
-            function displayCart() {
-                var cartContainer = document.getElementById("cart");
-                cartContainer.innerHTML = "";
-                cart.forEach(function (item) {
-                    var itemDiv = document.createElement("div");
-                    itemDiv.classList.add("cart-item");
-                    itemDiv.innerHTML = `
+        });
+
+        function displayCart() {
+            var cartContainer = document.getElementById("cart");
+            cartContainer.innerHTML = "";
+            cart.forEach(function (item) {
+                var itemDiv = document.createElement("div");
+                itemDiv.classList.add("cart-item");
+                itemDiv.innerHTML = `
                     <p>${item.name} - Price: $${item.price.toFixed(2)} - Quantity: ${item.quantity}</p>
                     <input type="number" min="1" value="${item.quantity}" class="item-quantity" data-item-name="${item.name}">
                     <button class="remove-item" data-item-name="${item.name}">Remove</button>
