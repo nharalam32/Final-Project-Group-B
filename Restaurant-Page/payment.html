@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/payment.css">
+    <title>Order Summary</title>
+</head>
     <style>
         
         body {
@@ -85,19 +87,36 @@
 </head>
 <body>
     <header>
-        <a href="../html/homepage.html"><h1>THREE GUYS</h1></a>
+        <h1>THREE GUYS</h1>
     </header>
 
     <main>
         <section class="order-summary">
             <h2>Order Summary</h2>
+            
+            <div class="item">
+                <p>Item Name 1</p>
+                <p>$10.00</p>
+            </div>
+            <div class="item">
+                <p>Item Name 2</p>
+                <p>$8.00</p>
+            </div>
+            
+            <div class="total">
+                <p>Total:</p>
+                <p>$18.00</p>
+            </div>
         </section>
 
         <section class="payment-details">
             <h2>Payment Details</h2>
             <form>
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" placeholder="Enter card number" required>
+                <div>
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" placeholder="Enter card number" required>
+                </div>
+                
                 
                 <label for="expiration-date">Expiration Date:</label>
                 <input type="text" id="expiration-date" placeholder="MM/YY" required>
@@ -124,50 +143,5 @@
     <footer>
         <p>&copy; 2023 Your Restaurant. All rights reserved.</p>
     </footer>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Retrieve cart data from URL parameters
-        var urlParams = new URLSearchParams(window.location.search);
-        var cartParam = urlParams.get("cart");
-        var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
-    
-        // Display cart items in the order summary on the payment page
-        var orderSummary = document.querySelector(".order-summary");
-    
-        cart.forEach(function (item) {
-            var itemDiv = document.createElement("div");
-            itemDiv.classList.add("item");
-            itemDiv.innerHTML = `
-                <p>${item.name} - Quantity: ${item.quantity}</p>
-                <p>$${(item.price * item.quantity).toFixed(2)}</p>
-            `;
-            orderSummary.appendChild(itemDiv);
-        });
-    
-        // Calculate and display the total with tip
-        var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-        var tipInput = document.getElementById("tip-amount");
-        var totalWithTip = total + (tipInput.value ? parseFloat(tipInput.value) : 0);
-        var totalDiv = document.querySelector(".total p:last-child");
-        totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
-    
-        // Add event listener for the tip input
-        tipInput.addEventListener("input", function () {
-            totalWithTip = total + (this.value ? parseFloat(this.value) : 0);
-            totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
-        });
-    
-        // Add any additional logic you need for payment processing
-    
-        // Example: Complete order button
-        var completeOrderButton = document.querySelector("#complete-order");
-        completeOrderButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            // Add logic to handle the order completion, e.g., send data to the server
-            console.log("Order completed:", cart);
-            alert("Order completed!");
-        });
-    });
-</script>
 </body>
 </html>

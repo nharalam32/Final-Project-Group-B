@@ -83,8 +83,8 @@ h2 {
     margin: 0 auto;
     display: inline-block;
     margin-top: 2cm;
-    width: 20cm;
-    height: 18cm;
+    width: 23cm;
+    height: 24cm;
     color: #C92027;
     border-radius: 1cm;
     
@@ -137,7 +137,7 @@ h2 {
     text-align: center;
     color: black;
 }
-/* #checkout-head {
+* #checkout-head {
     padding-top: 3cm;
     padding-left: 3cm;
     color: white;
@@ -148,23 +148,37 @@ form {
 }
 input {
     border: 2px solid grey;
-    height: 1.5cm;
-    width: 9cm;
+    height: 1.2cm;
+    width: 13cm;
     margin-right: 1cm;
     margin-bottom: .5cm;
     padding: .5cm;
     border-radius: .25cm;
 }
 
-#name {
+form {
     display: flex;
+    flex-direction: column;
 }
-#contactinfo {
-    display: flex;
+
+label {
+    margin-top: 10px;
+    margin-left: -500px;
 }
-#cardname {
-    display: flex;
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-left: 200px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
-#cardnum {
-    display: flex;
-} */
+
+button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

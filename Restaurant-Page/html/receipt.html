@@ -45,6 +45,37 @@
         <h2>HAVE A GREAT REST OF YOUR DAY!</h2>
     </div>
     <section id="footer">
+
+<section id="footer">
+    
+</section>
+
+<section id="sign-out">
+    <div>
+        <button onclick="signout()" id="sign-out-button" type="button">Sign Out</button>
+
+    </div>
+</section>
+<style>
+    /* Additional CSS for button styling */
+    #sign-out-button {
+        font-size: 1em; /* 5 times bigger */
+        width: px;
+        height: px;
+        padding: 10px 20px;
+        background-color: grey;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #sign-out-button:hover {
+        background-color: red;
+    }
+</style>
+
         <div id="foot">
             <div id="leftside">
                 <h1>THREE GUYS</h1>
@@ -71,6 +102,9 @@
         cart.forEach(function (item) {
             receiptContent.innerHTML += `<p>${item.name} - Price: $${item.price.toFixed(2)} - Quantity: ${item.quantity}</p>`;
         });
+        function signout () {
+            localStorage.setItem("isLoggedIn", "false");
+        }
     </script>
 </body>
 </html>
