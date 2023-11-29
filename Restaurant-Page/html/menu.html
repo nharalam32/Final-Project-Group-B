@@ -175,83 +175,89 @@
             <p>@copyright 2023 THREE GUYS LLC</p>
         </div>
     </section>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var cart = [];
-            var addToCartButtons = document.querySelectorAll(".addcart");
-            addToCartButtons.forEach(function (button) {
-                button.addEventListener("click", function () {
-                    var itemName = this.parentNode.querySelector("h4").textContent;
-                    var priceElement = this.parentNode.querySelector("h4[id$='-price']"); 
-                    var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
-                    var existingItem = cart.find(item => item.name === itemName);
-    
-                    if (existingItem) {
-                        existingItem.quantity++;
-                    } else {
-                        cart.push({
-                            name: itemName,
-                            price: itemPrice,
-                            quantity: 1
-                        });
-                    }
-                    displayCart();
-                });
-    
+<!-- Your HTML code ... -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var cart = [];
+
+        var addToCartButtons = document.querySelectorAll(".addcart");
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var itemName = this.parentNode.querySelector("h4").textContent;
+                var priceElement = this.parentNode.querySelector("h4[id$='-price']");
+                var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
+                var existingItem = cart.find(item => item.name === itemName);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        name: itemName,
+                        price: itemPrice,
+                        quantity: 1
+                    });
+                }
+                displayCart();
             });
-    
-            function displayCart() {
-                var cartContainer = document.getElementById("cart");
-                cartContainer.innerHTML = "";
-                cart.forEach(function (item) {
-                    var itemDiv = document.createElement("div");
-                    itemDiv.classList.add("cart-item");
-                    itemDiv.innerHTML = `
+        });
+
+        function displayCart() {
+            var cartContainer = document.getElementById("cart");
+            cartContainer.innerHTML = "";
+            cart.forEach(function (item) {
+                var itemDiv = document.createElement("div");
+                itemDiv.classList.add("cart-item");
+                itemDiv.innerHTML = `
                     <p>${item.name} - Price: $${item.price.toFixed(2)} - Quantity: ${item.quantity}</p>
                     <input type="number" min="1" value="${item.quantity}" class="item-quantity" data-item-name="${item.name}">
                     <button class="remove-item" data-item-name="${item.name}">Remove</button>
                 `;
-                    cartContainer.appendChild(itemDiv);
+                cartContainer.appendChild(itemDiv);
+            });
+            var totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+            cartContainer.innerHTML += `<p style="font-size: 20px">Total Price: $${totalPrice.toFixed(2)}</p>`;
+            var quantityInputs = document.querySelectorAll(".item-quantity");
+            quantityInputs.forEach(function (input) {
+                input.addEventListener("input", function () {
+                    updateCartItemQuantity(this.dataset.itemName, parseInt(this.value, 10));
                 });
-                var totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-                cartContainer.innerHTML += `<p style="font-size: 20px">Total Price: $${totalPrice.toFixed(2)}</p>`;
-                var quantityInputs = document.querySelectorAll(".item-quantity");
-                quantityInputs.forEach(function (input) {
-                    input.addEventListener("input", function () {
-                        updateCartItemQuantity(this.dataset.itemName, parseInt(this.value, 10));
-                    });
+            });
+
+            var removeButtons = document.querySelectorAll(".remove-item");
+            removeButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    removeCartItem(this.dataset.itemName);
                 });
-    
-                var removeButtons = document.querySelectorAll(".remove-item");
-                removeButtons.forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        removeCartItem(this.dataset.itemName);
-                    });
-                });
-            }
-    
-            function updateCartItemQuantity(itemName, newQuantity) {
-                var item = cart.find(item => item.name === itemName);
-                if (item) {
-                    item.quantity = newQuantity;
-                    displayCart();
-                }
-            }
-    
-            function removeCartItem(itemName) {
-                cart = cart.filter(item => item.name !== itemName);
+            });
+        }
+
+        function updateCartItemQuantity(itemName, newQuantity) {
+            var item = cart.find(item => item.name === itemName);
+            if (item) {
+                item.quantity = newQuantity;
                 displayCart();
             }
-    
-            var proceedToPaymentButton = document.getElementById("addcart");
-            proceedToPaymentButton.addEventListener("click", function () {
-                console.log("Items in the cart:", cart);
-            });
-        });
-        function relocate () {
-            window.location.href="payment.html"
         }
-    </script>
+
+        function removeCartItem(itemName) {
+            cart = cart.filter(item => item.name !== itemName);
+            displayCart();
+        }
+
+        var proceedToPaymentButton = document.getElementById("addcart");
+        proceedToPaymentButton.addEventListener("click", function () {
+            // Store the cart data in URL parameters
+            var cartParam = encodeURIComponent(JSON.stringify(cart));
+            var paymentUrl = "payment.html?cart=" + cartParam;
+            window.location.href = paymentUrl;
+        });
+
+    });
+</script>
+
+<!-- Your HTML code ... -->
+
     
 </body>
 </html>
