@@ -277,6 +277,15 @@
     });
 });
 
+function relocate () {
+    var isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn === "true") {
+        window.location.href = "payment.html";
+    } else {
+        window.location.href = "login.html";
+    }
+}
 </script>
     
 </body>
