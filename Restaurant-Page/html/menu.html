@@ -213,51 +213,47 @@
                     <input type="number" min="1" value="${item.quantity}" class="item-quantity" data-item-name="${item.name}">
                     <button class="remove-item" data-item-name="${item.name}">Remove</button>
                 `;
-                cartContainer.appendChild(itemDiv);
-            });
-            var totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-            cartContainer.innerHTML += `<p style="font-size: 20px">Total Price: $${totalPrice.toFixed(2)}</p>`;
-            var quantityInputs = document.querySelectorAll(".item-quantity");
-            quantityInputs.forEach(function (input) {
-                input.addEventListener("input", function () {
-                    updateCartItemQuantity(this.dataset.itemName, parseInt(this.value, 10));
+                    cartContainer.appendChild(itemDiv);
                 });
-            });
-
-            var removeButtons = document.querySelectorAll(".remove-item");
-            removeButtons.forEach(function (button) {
-                button.addEventListener("click", function () {
-                    removeCartItem(this.dataset.itemName);
+                var totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+                cartContainer.innerHTML += `<p style="font-size: 20px">Total Price: $${totalPrice.toFixed(2)}</p>`;
+                var quantityInputs = document.querySelectorAll(".item-quantity");
+                quantityInputs.forEach(function (input) {
+                    input.addEventListener("input", function () {
+                        updateCartItemQuantity(this.dataset.itemName, parseInt(this.value, 10));
+                    });
                 });
-            });
-        }
-
-        function updateCartItemQuantity(itemName, newQuantity) {
-            var item = cart.find(item => item.name === itemName);
-            if (item) {
-                item.quantity = newQuantity;
+    
+                var removeButtons = document.querySelectorAll(".remove-item");
+                removeButtons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        removeCartItem(this.dataset.itemName);
+                    });
+                });
+            }
+    
+            function updateCartItemQuantity(itemName, newQuantity) {
+                var item = cart.find(item => item.name === itemName);
+                if (item) {
+                    item.quantity = newQuantity;
+                    displayCart();
+                }
+            }
+    
+            function removeCartItem(itemName) {
+                cart = cart.filter(item => item.name !== itemName);
                 displayCart();
             }
-        }
-
-        function removeCartItem(itemName) {
-            cart = cart.filter(item => item.name !== itemName);
-            displayCart();
-        }
-
-        var proceedToPaymentButton = document.getElementById("addcart");
-        proceedToPaymentButton.addEventListener("click", function () {
-            // Store the cart data in URL parameters
-            var cartParam = encodeURIComponent(JSON.stringify(cart));
-            var paymentUrl = "payment.html?cart=" + cartParam;
-            window.location.href = paymentUrl;
+    
+            var proceedToPaymentButton = document.getElementById("addcart");
+            proceedToPaymentButton.addEventListener("click", function () {
+                console.log("Items in the cart:", cart);
+            });
         });
-
-    });
-</script>
-
-<!-- Your HTML code ... -->
-
+        function relocate () {
+            window.location.href="payment.html"
+        }
+    </script>
     
 </body>
 </html>
