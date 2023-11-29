@@ -282,7 +282,7 @@ function relocate () {
 
     if (isLoggedIn === "true") {
         window.location.href = "payment.html";
-    } else {
+    } else if (isLoggedIn === "false") {
         window.location.href = "login.html";
     }
 }
