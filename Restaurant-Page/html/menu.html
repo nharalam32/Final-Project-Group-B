@@ -287,9 +287,9 @@
 function relocate () {
     var isLoggedIn = localStorage.getItem("isLoggedIn");
 
-    if (isLoggedIn !== "true") {
+    if (isLoggedIn === 0) {
         window.location.href = "login.html";
-    } else if (isLoggedIn === "true") {
+    } else if (isLoggedIn === 1) {
         window.location.href = "payment.html";
     }
 }
