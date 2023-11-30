@@ -45,6 +45,7 @@
         </div>
     </section>
     <div id="departure-prompt">
+        <button type="button" onclick="redirect_comment()">How Are We Doing?</button>
         <h2>HAVE A GREAT REST OF YOUR DAY!</h2>
     </div>
     <section id="footer">
@@ -56,25 +57,6 @@
 
     </div>
 </section>
-<style>
-    /* Additional CSS for button styling */
-    #sign-out-button {
-        font-size: 1em; /* 5 times bigger */
-        width: px;
-        height: px;
-        padding: 10px 20px;
-        background-color: grey;
-        color: white;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    #sign-out-button:hover {
-        background-color: red;
-    }
-</style>
         <div id="foot">
             <div id="leftside">
                 <h1>THREE GUYS</h1>
@@ -143,6 +125,9 @@
             totalWithTipElement.textContent = `Total with Tip: $${totalWithTip.toFixed(2)}`;
             orderDetailsSection.appendChild(totalWithTipElement);
         });
+        function redirect_comment () {
+            window.location.href = "../html/review.html"
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: Helvetica;
+    src: url('fonts/Helvetica-Black\ Black.ttf') format(ttf);
+}
+html {
+    font-family: Helvetica;
+}
+body {
+    background-color: #C92027;
+    margin-top: 3cm;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 5cm;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    justify-content: center;
+    margin: 0 auto;
+}
+label {
+    margin-bottom: .5cm;
+}
+input {
+    margin-bottom: .5cm;
+    border: 0;
+    height: .75cm;
+    border-radius: .5cm;
+}
