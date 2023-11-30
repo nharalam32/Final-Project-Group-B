@@ -31,6 +31,7 @@
             padding: 20px;
         }
 
+
         section {
             background-color: #C92027;
             border-radius: 8px;
@@ -64,6 +65,7 @@
 
         label {
             margin-top: 10px;
+            margin-bottom: .5cm;
         }
 
         input {
@@ -81,6 +83,14 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .order-summary {
+            color: white;
+        }
+        a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #C92027;
+}
     </style>
 </head>
 <body>
@@ -125,49 +135,61 @@
         <p>&copy; 2023 Your Restaurant. All rights reserved.</p>
     </footer>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Retrieve cart data from URL parameters
-        var urlParams = new URLSearchParams(window.location.search);
-        var cartParam = urlParams.get("cart");
-        var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
-    
-        // Display cart items in the order summary on the payment page
-        var orderSummary = document.querySelector(".order-summary");
-    
-        cart.forEach(function (item) {
-            var itemDiv = document.createElement("div");
-            itemDiv.classList.add("item");
-            itemDiv.innerHTML = `
-                <p>${item.name} - Quantity: ${item.quantity}</p>
-                <p>$${(item.price * item.quantity).toFixed(2)}</p>
-            `;
-            orderSummary.appendChild(itemDiv);
-        });
-    
-        // Calculate and display the total with tip
-        var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-        var tipInput = document.getElementById("tip-amount");
-        var totalWithTip = total + (tipInput.value ? parseFloat(tipInput.value) : 0);
-        var totalDiv = document.querySelector(".total p:last-child");
-        totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
-    
-        // Add event listener for the tip input
-        tipInput.addEventListener("input", function () {
-            totalWithTip = total + (this.value ? parseFloat(this.value) : 0);
+        document.addEventListener("DOMContentLoaded", function () {
+            // Retrieve cart data from URL parameters
+            var urlParams = new URLSearchParams(window.location.search);
+            var cartParam = urlParams.get("cart");
+            var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
+        
+            // Display cart items in the order summary on the payment page
+            var orderSummary = document.querySelector(".order-summary");
+        
+            cart.forEach(function (item) {
+                var itemDiv = document.createElement("div");
+                itemDiv.classList.add("item");
+                itemDiv.innerHTML = `
+                    <p>${item.name} - Quantity: ${item.quantity}</p>
+                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                `;
+                orderSummary.appendChild(itemDiv);
+            });
+        
+            // Calculate and display the total with tip
+            var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+            var tipInput = document.getElementById("tip-amount");
+            var totalWithTip = total + (tipInput.value ? parseFloat(tipInput.value) : 0);
+            var totalDiv = document.querySelector(".total p:last-child");
             totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
+        
+            // Add event listener for the tip input
+            tipInput.addEventListener("input", function () {
+                totalWithTip = total + (this.value ? parseFloat(this.value) : 0);
+                totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
+            });
+        
+            // Example: Complete order button
+            var completeOrderButton = document.querySelector("button");
+            completeOrderButton.addEventListener("click", function () {
+                // Add logic to handle the order completion, e.g., send data to the server
+                console.log("Order completed:", cart);
+                // You can add an alert or other logic here if needed
+                relocate();
+            });
         });
-    
-        // Add any additional logic you need for payment processing
-    
-        // Example: Complete order button
-        var completeOrderButton = document.querySelector("#complete-order");
+        
+        function relocate() {
+            // Assuming cart is the array containing order details
+            var cartData = encodeURIComponent(JSON.stringify(cart));
+            window.location.href = "receipt.html?cart=" + cartData;
+        }
+            var completeOrderButton = document.querySelector("button");
         completeOrderButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            // Add logic to handle the order completion, e.g., send data to the server
-            console.log("Order completed:", cart);
-            alert("Order completed!");
+        event.preventDefault(); // Prevent form submission
+        // Add logic to handle the order completion, e.g., send data to the server
+        console.log("Order completed:", cart);
+        relocate();
         });
-    });
-</script>
+
+        </script>
 </body>
 </html>
