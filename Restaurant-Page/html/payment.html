@@ -126,7 +126,7 @@
                     <p>$18.00</p>
                 </div>
 
-                <button type="submit">Complete Order</button>
+                <button type="submit" id="complete-order-button">Complete Order</button>
             </form>
         </section>
     </main>
@@ -167,29 +167,26 @@
                 totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
             });
         
-            // Example: Complete order button
-            var completeOrderButton = document.querySelector("button");
-            completeOrderButton.addEventListener("click", function () {
-                // Add logic to handle the order completion, e.g., send data to the server
-                console.log("Order completed:", cart);
-                // You can add an alert or other logic here if needed
-                relocate();
-            });
-        });
-        
-        function relocate() {
-            // Assuming cart is the array containing order details
-            var cartData = encodeURIComponent(JSON.stringify(cart));
-            window.location.href = "receipt.html?cart=" + cartData;
-        }
-            var completeOrderButton = document.querySelector("button");
-        completeOrderButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent form submission
-        // Add logic to handle the order completion, e.g., send data to the server
-        console.log("Order completed:", cart);
-        relocate();
-        });
 
-        </script>
+        // ... Your existing JavaScript code ...
+
+        // Example: Complete order button
+        var completeOrderButton = document.getElementById("complete-order-button");
+        completeOrderButton.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+            // Add logic to handle the order completion, e.g., send data to the server
+            var tipAmount = tipInput.value ? parseFloat(tipInput.value) : 0;
+            relocate(cart, tipAmount);
+        });
+    });
+        
+    function relocate(cart, tipAmount) {
+    // Assuming cart is the array containing order details
+    var cartData = encodeURIComponent(JSON.stringify(cart));
+    var tipAmountData = encodeURIComponent(tipAmount.toString());
+    console.log("Redirecting to receipt.html with Tip Amount:", tipAmount);
+    window.location.href = "receipt.html?cart=" + cartData + "&tipAmount=" + tipAmountData;
+}
+    </script>
 </body>
 </html>

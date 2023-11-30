@@ -112,6 +112,9 @@ a {
     color: white;
     font-size: 20px;
 }
+#order-details p {
+    margin-bottom: 1cm;
+}
 #copyrightbs {
     background-color: #C92027;
     padding-top: 3px;
