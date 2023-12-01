@@ -278,7 +278,6 @@
 
     var proceedToPaymentButton = document.getElementById("addcart");
     proceedToPaymentButton.addEventListener("click", function () {
-        // Pass the cart data to the payment.html page
         var cartParam = encodeURIComponent(JSON.stringify(cart));
         window.location.href = "payment.html?cart=" + cartParam;
     });
