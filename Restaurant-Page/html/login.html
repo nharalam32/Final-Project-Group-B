@@ -57,7 +57,7 @@
             function login() {
                 var email = document.getElementById("email").value;
                 var password = document.getElementById("password").value;
-                
+
                 var storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
                 var matchingAccount = storedAccounts.find(function (account) {
@@ -74,8 +74,8 @@
                         alert("Incorrect email or password. Please try again.");
                     }
                 } else {
-                    alert("Please fill out both username and password fields.");
-                }   
+                    alert("Please fill out both email and password fields.");
+                }
             }
         </script>
     </body>

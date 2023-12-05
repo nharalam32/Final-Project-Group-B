@@ -76,60 +76,66 @@
         </div>
     </section>
     <script>
-        function signout () {
-            localStorage.setItem("isLoggedIn", 0);
-            window.location.href = "../html/login.html"
-        }
-        function redirect_signin () {
-        window.location.href="../html/login.html"
-        }
-        function redirect_locations() {
-            window.location.href = "http://127.0.0.1:5500/Restaurant-Page/html/homepage.html#locations";
-        }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve customer name from URL parameters
+    var urlParams = new URLSearchParams(window.location.search);
+    var customerNameParam = urlParams.get("customerName");
+    var customerName = customerNameParam ? decodeURIComponent(customerNameParam) : "";
 
-        function redirect_about_us() {
-            window.location.href = "http://127.0.0.1:5500/Restaurant-Page/html/homepage.html#aboutus";
-        }
-                  document.addEventListener("DOMContentLoaded", function () {
-            // Retrieve cart data from URL parameters
-            var urlParams = new URLSearchParams(window.location.search);
-            var cartParam = urlParams.get("cart");
-            var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
+    if (!customerName) {
+        console.error("Error: Customer name is not defined.");
+        return; // Abort further execution if customer name is not defined
+    }
 
-            // Display cart items below the receipt header on the receipt page
-            var orderDetailsSection = document.getElementById("order-details");
+    // Display customer name on the receipt
+    var pleasureHeading = document.getElementById("pleasure-heading");
+    var customerNameElement = document.createElement("p");
+    customerNameElement.textContent = `Thank you, ${customerName}, for your order!`;
+    pleasureHeading.appendChild(customerNameElement);
 
-            cart.forEach(function (item) {
-                var itemElement = document.createElement("p");
-                itemElement.textContent = `${item.name} - Quantity: ${item.quantity} - Total: $${(item.price * item.quantity).toFixed(2)}`;
-                orderDetailsSection.appendChild(itemElement);
-            });
+    // Retrieve cart data from URL parameters
+    var cartParam = urlParams.get("cart");
+    var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
 
-            // Retrieve tip amount from URL parameters
-            var tipAmountParam = urlParams.get("tipAmount");
-            var tipAmount = tipAmountParam ? parseFloat(tipAmountParam) : 0;
+    // Display cart items below the receipt header on the receipt page
+    var orderDetailsSection = document.getElementById("order-details");
 
-            // Calculate and display the total with tip
-            var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-            var totalWithTip = total + tipAmount;
+    cart.forEach(function (item) {
+        var itemElement = document.createElement("p");
+        itemElement.textContent = `${item.name} - Quantity: ${item.quantity} - Total: $${(item.price * item.quantity).toFixed(2)}`;
+        orderDetailsSection.appendChild(itemElement);
+    });
 
-            // Add spacing between order details, tip, and total
-            var spacingElement = document.createElement("p");
-            spacingElement.style.marginBottom = "1.5cm";
-            orderDetailsSection.appendChild(spacingElement);
+    // Retrieve tip amount from URL parameters
+    var tipAmountParam = urlParams.get("tipAmount");
+    var tipAmount = tipAmountParam ? parseFloat(tipAmountParam) : 0;
 
-            var tipElement = document.createElement("p");
-            tipElement.textContent = `Tip Amount: $${tipAmount.toFixed(2)}`;
-            orderDetailsSection.appendChild(tipElement);
+    // Calculate and display the total with tip
+    var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    var totalWithTip = total + tipAmount;
 
-            var totalWithTipElement = document.createElement("p");
-            totalWithTipElement.textContent = `Total with Tip: $${totalWithTip.toFixed(2)}`;
-            orderDetailsSection.appendChild(totalWithTipElement);
-        });
-        function redirect_comment () {
-            window.location.href = "../html/review.html"
-        }
+    // Add spacing between order details, tip, and total
+    var spacingElement = document.createElement("p");
+    spacingElement.style.marginBottom = "1.5cm";
+    orderDetailsSection.appendChild(spacingElement);
+
+    var tipElement = document.createElement("p");
+    tipElement.textContent = `Tip Amount: $${tipAmount.toFixed(2)}`;
+    orderDetailsSection.appendChild(tipElement);
+
+    var totalWithTipElement = document.createElement("p");
+    totalWithTipElement.textContent = `Total with Tip: $${totalWithTip.toFixed(2)}`;
+    orderDetailsSection.appendChild(totalWithTipElement);
+
+    console.log("Customer Name:", customerName);
+});
+
+
     </script>
+
+<!-- ... (existing HTML code) ... -->
+
 </body>
 </html>
 

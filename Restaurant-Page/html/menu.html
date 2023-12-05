@@ -295,7 +295,54 @@ function relocate () {
 function redirect_signin () {
     window.location.href="../html/login.html"
 }
-</script>
-    
+ // Function to remove an item
+ function removeMenuItem(itemId) {
+            // Remove the item from localStorage
+            let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
+            localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
+
+            // Notify the user that the item was removed
+            alert('Item removed from the menu.');
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch menu items from localStorage
+            const storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            
+            // Render menu items on the page
+            const menuList = document.getElementById('menu-items');
+            storedMenuItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `
+                    <div id="buritem">
+                        <h4>${item.name}</h4>
+                        <button type="button" class="addcart" data-item-id="${item.id}" onclick="removeMenuItem(${item.id})">Remove</button>
+                    </div>
+                `;
+                menuList.appendChild(itemElement);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+    // ... your existing code
+
+    // Listen for the custom event indicating item removal
+    document.addEventListener('itemRemoved', function (event) {
+        const removedItemId = event.detail.itemId;
+        removeMenuItemFromMenu(removedItemId);
+    });
+
+    // Function to remove an item from the menu
+    function removeMenuItemFromMenu(itemId) {
+        const itemElement = document.querySelector(`[data-item-id="${itemId}"]`);
+        if (itemElement) {
+            itemElement.remove();
+        }
+    }
+});
+    </script>
 </body>
 </html>
+
+
+        

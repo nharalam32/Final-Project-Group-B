@@ -115,8 +115,8 @@
                 <label for="cvv">CVV:</label>
                 <input type="text" id="cvv" placeholder="CVV" required>
                 
-                <label for="name">Name on Card:</label>
-                <input type="text" id="name" placeholder="Name on card" required>
+                <label for="cardholder-name">Name on Card:</label>
+                <input type="text" id="cardholder-name" placeholder="Name on card" required>
 
                 <label for="tip-amount">Tip:</label>
                 <input type="number" id="tip-amount" placeholder="Enter tip amount">
@@ -134,62 +134,70 @@
     <footer>
         <p>&copy; 2023 Your Restaurant. All rights reserved.</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Retrieve cart data from URL parameters
-            var urlParams = new URLSearchParams(window.location.search);
-            var cartParam = urlParams.get("cart");
-            var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
-        
-            // Display cart items in the order summary on the payment page
-            var orderSummary = document.querySelector(".order-summary");
-        
-            cart.forEach(function (item) {
-                var itemDiv = document.createElement("div");
-                itemDiv.classList.add("item");
-                itemDiv.innerHTML = `
-                    <p>${item.name} - Quantity: ${item.quantity}</p>
-                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
-                `;
-                orderSummary.appendChild(itemDiv);
-            });
-        
-            // Calculate and display the total with tip
-            var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-            var tipInput = document.getElementById("tip-amount");
-            var totalWithTip = total + (tipInput.value ? parseFloat(tipInput.value) : 0);
-            var totalDiv = document.querySelector(".total p:last-child");
-            totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
-        
-            // Add event listener for the tip input
-            tipInput.addEventListener("input", function () {
-                totalWithTip = total + (this.value ? parseFloat(this.value) : 0);
-                totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
-            });
-        
+    <!-- ... (Your existing HTML code) ... -->
 
-        // ... Your existing JavaScript code ...
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve cart data from URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        var cartParam = urlParams.get("cart");
+        var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
+
+        // Display cart items in the order summary on the payment page
+        var orderSummary = document.querySelector(".order-summary");
+
+        cart.forEach(function (item) {
+            var itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+            itemDiv.innerHTML = `
+                <p>${item.name} - Quantity: ${item.quantity}</p>
+                <p>$${(item.price * item.quantity).toFixed(2)}</p>
+            `;
+            orderSummary.appendChild(itemDiv);
+        });
+
+        // Calculate and display the total with tip
+        var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        var tipInput = document.getElementById("tip-amount");
+        var totalWithTip = total + (tipInput.value ? parseFloat(tipInput.value) : 0);
+        var totalDiv = document.querySelector(".total p:last-child");
+        totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
+
+        // Add event listener for the tip input
+        tipInput.addEventListener("input", function () {
+            totalWithTip = total + (this.value ? parseFloat(this.value) : 0);
+            totalDiv.textContent = `$${totalWithTip.toFixed(2)}`;
+        });
 
         // Example: Complete order button
         var completeOrderButton = document.getElementById("complete-order-button");
         completeOrderButton.addEventListener("click", function (event) {
             event.preventDefault(); // Prevent form submission
+
             // Add logic to handle the order completion, e.g., send data to the server
             var tipAmount = tipInput.value ? parseFloat(tipInput.value) : 0;
-            relocate(cart, tipAmount);
+
+            // Retrieve customer's name from the 'cardholder-name' input field
+            var customerName = document.getElementById("cardholder-name").value;
+
+            // Pass customer's name to the relocate function
+            relocate(cart, tipAmount, customerName);
         });
     });
-        
-    function relocate(cart, tipAmount) {
-    // Assuming cart is the array containing order details
-    var cartData = encodeURIComponent(JSON.stringify(cart));
-    var tipAmountData = encodeURIComponent(tipAmount.toString());
-    console.log("Redirecting to receipt.html with Tip Amount:", tipAmount);
-    window.location.href = "receipt.html?cart=" + cartData + "&tipAmount=" + tipAmountData;
-}
-function redirect_signin () {
-    window.location.href="../html/login.html"
-}
-    </script>
+    console.log("Customer Name:", customerName);
+    function relocate(cart, tipAmount, customerName) {
+        // Assuming cart is the array containing order details
+        var cartData = encodeURIComponent(JSON.stringify(cart));
+        var tipAmountData = encodeURIComponent(tipAmount.toString());
+        var customerNameData = encodeURIComponent(customerName);
+        console.log("Redirecting to receipt.html with Tip Amount:", tipAmount);
+        window.location.href = "receipt.html?cart=" + cartData + "&tipAmount=" + tipAmountData + "&customerName=" + customerNameData;
+    }
+</script>
+
+<!-- ... (Your existing HTML code) ... -->
+
+
+
 </body>
 </html>
