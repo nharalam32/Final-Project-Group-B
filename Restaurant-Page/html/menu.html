@@ -325,24 +325,11 @@ function redirect_signin () {
                 menuList.appendChild(itemElement);
             });
         });
+    
+        
+   
 
-        document.addEventListener('DOMContentLoaded', function () {
-    // ... your existing code
 
-    // Listen for the custom event indicating item removal
-    document.addEventListener('itemRemoved', function (event) {
-        const removedItemId = event.detail.itemId;
-        removeMenuItemFromMenu(removedItemId);
-    });
-
-    // Function to remove an item from the menu
-    function removeMenuItemFromMenu(itemId) {
-        const itemElement = document.querySelector(`[data-item-id="${itemId}"]`);
-        if (itemElement) {
-            itemElement.remove();
-        }
-    }
-});
     </script>
 </body>
 </html>

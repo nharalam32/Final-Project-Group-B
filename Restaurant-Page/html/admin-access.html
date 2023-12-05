@@ -154,19 +154,8 @@
         </div>
     </section>
     <script>
-         function removeMenuItem(itemId) {
-    // Remove the item from localStorage
-    let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-    storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
-    localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
+      
 
-    // Notify the user that the item was removed
-    alert('Item removed from the menu.');
-
-    // Dispatch a custom event for other pages to listen
-    const removeEvent = new CustomEvent('itemRemoved', { detail: { itemId } });
-    document.dispatchEvent(removeEvent);
-}
     </script>
         </body>
     </html>
