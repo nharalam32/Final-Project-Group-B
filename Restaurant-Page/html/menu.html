@@ -287,10 +287,13 @@
 function relocate () {
     var isLoggedIn = localStorage.getItem("isLoggedIn");
 
-    if (isLoggedIn === 0) {
-        window.location.href = "login.html";
-    } else if (isLoggedIn === 1) {
+    isLoggedIn = parseInt(isLoggedIn, 10);
+    console.log("isLoggedIn:", isLoggedIn, typeof isLoggedIn);
+
+    if (isLoggedIn === 1) {
         window.location.href = "payment.html";
+    } else {
+        window.location.href = "login.html";
     }
 }
 function redirect_signin () {
