@@ -83,7 +83,7 @@
                         storedAccounts.push(newAccount);
                         localStorage.setItem("accounts", JSON.stringify(storedAccounts));
                         alert("Account created");
-                        localStorage.setItem("isLoggedIn", 1);
+                        localStorage.setItem("isLoggedIn", "1");
                         window.location.href = "homepage.html";
                     } else {
                         alert('Passwords do not match.');
