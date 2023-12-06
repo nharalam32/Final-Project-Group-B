@@ -264,6 +264,18 @@
 
     function displayCart() {
         var cartContainer = document.getElementById("cart");
+        var addToCartButtons = document.querySelectorAll(".addcart");
+                addToCartButtons.forEach(function (button) {
+                    var itemName = button.parentNode.querySelector("h4").textContent;
+                    var removedItems = JSON.parse(localStorage.getItem('removedItems')) || [];
+                    var isItemRemoved = removedItems.some(item => item.name === itemName);
+
+                    if (isItemRemoved) {
+                        button.disabled = true;
+                    } else {
+                        button.disabled = false;
+                    }
+                });
         cartContainer.innerHTML = "";
         cart.forEach(function (item) {
             var itemDiv = document.createElement("div");
@@ -358,9 +370,8 @@ function redirect_signin () {
                 `;
                 menuList.appendChild(itemElement);
             });
-        });
+        
 
-        document.addEventListener('DOMContentLoaded', function () {
     // ... your existing code
 
     // Listen for the custom event indicating item removal
