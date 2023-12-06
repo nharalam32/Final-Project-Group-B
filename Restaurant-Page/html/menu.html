@@ -118,7 +118,7 @@
                 <button type="button" class="addcart">ADD TO CART</button>
             </div> 
     </section>
-    <section id="shake-items" style="padding-bottom: 3cm;">
+    <section id="shake-items">
         <div id="drinks-heading">
             <h2>MILK SHAKES</h2>
         </div>
@@ -147,6 +147,38 @@
                 <h4 id="oreoshake-price">Price: $3</h4>
                 <button type="button" class="addcart">ADD TO CART</button>
             </div> 
+            
+    </section>
+    <section id="hotdog-items" style="padding-bottom: 3cm;">
+        <div id="hotdog-heading">
+            <h2>HOT DOGS</h2>
+        </div>
+        <div id="dog-images">
+            <div id="buritem">
+                <img src="../Images/reghotdog.webp"  alt="">
+                <h4 id="reghotdog">REGULAR HOT DOG</h4>
+                <h4 id="oreoshake-price">Price: $1.50</h4>
+                <button type="button" class="addcart">ADD TO CART</button>
+            </div> 
+            <div id="buritem">
+                <img src="../Images/bachotdog.webp"  alt="">
+                <h4 id="oreoshake">BACON HOT DOG</h4>
+                <h4 id="oreoshake-price">Price: $3</h4>
+                <button type="button" class="addcart">ADD TO CART</button>
+            </div> 
+            <div id="buritem">
+                <img src="../Images/corndog.jpg"  alt="">
+                <h4 id="reghotdog">CORN DOG</h4>
+                <h4 id="oreoshake-price">Price: $1</h4>
+                <button type="button" class="addcart">ADD TO CART</button>
+            </div> 
+            <div id="buritem">
+                <img src="../Images/prezeldog.webp"  alt="">
+                <h4 id="reghotdog">PREZEL DOG</h4>
+                <h4 id="oreoshake-price">Price: $2</h4>
+                <button type="button" class="addcart">ADD TO CART</button>
+            </div> 
+    </div>
     </section>
     <section id="cart-container">
         <div id="cart">
@@ -177,15 +209,9 @@
     </section>
 
 <script>
-    function redirect_locations() {
-            window.location.href = "http://127.0.0.1:5500/Restaurant-Page/html/homepage.html#locations";
-        }
-
-        function redirect_about_us() {
-            window.location.href = "http://127.0.0.1:5500/Restaurant-Page/html/homepage.html#aboutus";
-        }
     document.addEventListener("DOMContentLoaded", function () {
         var cart = [];
+
 
         var addToCartButtons = document.querySelectorAll(".addcart");
         addToCartButtons.forEach(function (button) {
@@ -194,6 +220,7 @@
                 var priceElement = this.parentNode.querySelector("h4[id$='-price']");
                 var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
                 var existingItem = cart.find(item => item.name === itemName);
+
 
                 if (existingItem) {
                     existingItem.quantity++;
@@ -211,6 +238,7 @@
         document.addEventListener("DOMContentLoaded", function () {
     var cart = [];
 
+
     var addToCartButtons = document.querySelectorAll(".addcart");
     addToCartButtons.forEach(function (button) {
         button.addEventListener("click", function () {
@@ -218,6 +246,7 @@
             var priceElement = this.parentNode.querySelector("h4[id$='-price']");
             var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
             var existingItem = cart.find(item => item.name === itemName);
+
 
             if (existingItem) {
                 existingItem.quantity++;
@@ -232,8 +261,21 @@
         });
     });
 
+
     function displayCart() {
         var cartContainer = document.getElementById("cart");
+        var addToCartButtons = document.querySelectorAll(".addcart");
+                addToCartButtons.forEach(function (button) {
+                    var itemName = button.parentNode.querySelector("h4").textContent;
+                    var removedItems = JSON.parse(localStorage.getItem('removedItems')) || [];
+                    var isItemRemoved = removedItems.some(item => item.name === itemName);
+
+                    if (isItemRemoved) {
+                        button.disabled = true;
+                    } else {
+                        button.disabled = false;
+                    }
+                });
         cartContainer.innerHTML = "";
         cart.forEach(function (item) {
             var itemDiv = document.createElement("div");
@@ -254,6 +296,7 @@
             });
         });
 
+
         var removeButtons = document.querySelectorAll(".remove-item");
         removeButtons.forEach(function (button) {
             button.addEventListener("click", function () {
@@ -261,6 +304,7 @@
             });
         });
     }
+
 
     function updateCartItemQuantity(itemName, newQuantity) {
         var item = cart.find(item => item.name === itemName);
@@ -270,13 +314,16 @@
         }
     }
 
+
     function removeCartItem(itemName) {
         cart = cart.filter(item => item.name !== itemName);
         displayCart();
     }
 
+
     var proceedToPaymentButton = document.getElementById("addcart");
     proceedToPaymentButton.addEventListener("click", function () {
+        // Pass the cart data to the payment.html page
         var cartParam = encodeURIComponent(JSON.stringify(cart));
         window.location.href = "payment.html?cart=" + cartParam;
     });
@@ -300,52 +347,8 @@ function relocate () {
 function redirect_signin () {
     window.location.href="../html/login.html"
 }
- // Function to remove an item
- function removeMenuItem(itemId) {
-            // Remove the item from localStorage
-            let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-            storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
-            localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
-
-            // Notify the user that the item was removed
-            alert('Item removed from the menu.');
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-            // Fetch menu items from localStorage
-            const storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-            
-            // Render menu items on the page
-            const menuList = document.getElementById('menu-items');
-            storedMenuItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.innerHTML = `
-                    <div id="buritem">
-                        <h4>${item.name}</h4>
-                        <button type="button" class="addcart" data-item-id="${item.id}" onclick="removeMenuItem(${item.id})">Remove</button>
-                    </div>
-                `;
-                menuList.appendChild(itemElement);
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-    // ... your existing code
-
-    // Listen for the custom event indicating item removal
-    document.addEventListener('itemRemoved', function (event) {
-        const removedItemId = event.detail.itemId;
-        removeMenuItemFromMenu(removedItemId);
-    });
-
-    // Function to remove an item from the menu
-    function removeMenuItemFromMenu(itemId) {
-        const itemElement = document.querySelector(`[data-item-id="${itemId}"]`);
-        if (itemElement) {
-            itemElement.remove();
-        }
-    }
-});
-    </script>
+</script>
+    
 </body>
 </html>
 
