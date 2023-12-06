@@ -178,15 +178,9 @@
 <!-- Your HTML code ... -->
 
 <script>
-    function redirect_locations() {
-            window.location.href = "http://127.0.0.1:5500/Restaurant-Page/html/homepage.html#locations";
-        }
-
-        function redirect_about_us() {
-            window.location.href = "http://127.0.0.1:5500/Restaurant-Page/html/homepage.html#aboutus";
-        }
     document.addEventListener("DOMContentLoaded", function () {
         var cart = [];
+
 
         var addToCartButtons = document.querySelectorAll(".addcart");
         addToCartButtons.forEach(function (button) {
@@ -195,6 +189,7 @@
                 var priceElement = this.parentNode.querySelector("h4[id$='-price']");
                 var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
                 var existingItem = cart.find(item => item.name === itemName);
+
 
                 if (existingItem) {
                     existingItem.quantity++;
@@ -212,6 +207,7 @@
         document.addEventListener("DOMContentLoaded", function () {
     var cart = [];
 
+
     var addToCartButtons = document.querySelectorAll(".addcart");
     addToCartButtons.forEach(function (button) {
         button.addEventListener("click", function () {
@@ -219,6 +215,7 @@
             var priceElement = this.parentNode.querySelector("h4[id$='-price']");
             var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
             var existingItem = cart.find(item => item.name === itemName);
+
 
             if (existingItem) {
                 existingItem.quantity++;
@@ -232,6 +229,7 @@
             displayCart();
         });
     });
+
 
     function displayCart() {
         var cartContainer = document.getElementById("cart");
@@ -255,6 +253,7 @@
             });
         });
 
+
         var removeButtons = document.querySelectorAll(".remove-item");
         removeButtons.forEach(function (button) {
             button.addEventListener("click", function () {
@@ -262,6 +261,7 @@
             });
         });
     }
+
 
     function updateCartItemQuantity(itemName, newQuantity) {
         var item = cart.find(item => item.name === itemName);
@@ -271,65 +271,23 @@
         }
     }
 
+
     function removeCartItem(itemName) {
         cart = cart.filter(item => item.name !== itemName);
         displayCart();
     }
 
+
     var proceedToPaymentButton = document.getElementById("addcart");
     proceedToPaymentButton.addEventListener("click", function () {
+        // Pass the cart data to the payment.html page
         var cartParam = encodeURIComponent(JSON.stringify(cart));
         window.location.href = "payment.html?cart=" + cartParam;
     });
 });
 
-function relocate () {
-    var isLoggedIn = localStorage.getItem("isLoggedIn");
 
-    isLoggedIn = parseInt(isLoggedIn, 10);
-    console.log("isLoggedIn:", isLoggedIn, typeof isLoggedIn);
-
-    if (isLoggedIn === 1) {
-        window.location.href = "payment.html";
-    } else {
-        window.location.href = "login.html";
-    }
-}
-function redirect_signin () {
-    window.location.href="../html/login.html"
-}
- // Function to remove an item
- function removeMenuItem(itemId) {
-            // Remove the item from localStorage
-            let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-            storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
-            localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
-
-            // Notify the user that the item was removed
-            alert('Item removed from the menu.');
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-            // Fetch menu items from localStorage
-            const storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-            
-            // Render menu items on the page
-            const menuList = document.getElementById('menu-items');
-            storedMenuItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.innerHTML = `
-                    <div id="buritem">
-                        <h4>${item.name}</h4>
-                        <button type="button" class="addcart" data-item-id="${item.id}" onclick="removeMenuItem(${item.id})">Remove</button>
-                    </div>
-                `;
-                menuList.appendChild(itemElement);
-            });
-        });
-    
-        
-   
-
-
+</script>
     </script>
 </body>
 </html>

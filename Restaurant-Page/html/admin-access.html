@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Guys Menu</title>
+    <title>Admin - Three Guys Menu</title>
     <link rel="stylesheet" href="../css/menu.css">
 </head>
 <body>
@@ -29,124 +29,117 @@
         <h1>Admin Access</h1>
     </div>
     <section id="menu-items">
-        <div id="drinks-heading">
-            <h2>BEVERAGES</h2>
-        </div>
+        <!-- BEVERAGES -->
         <div id="beverage-img">
             <div id="item">
                 <img src="../Images/sprite-image.jpg" id="sprite" alt="">
-                    <h4 id="sprite">SPRITE</h4>
-                    <h4 id="sprite-price">Price: $2.50</h4>
-                    <button type="button" class="addcart">Remove</button>
+                <h4 id="sprite">SPRITE</h4>
+                <h4 id="sprite-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="1" onclick="removeMenuItem(1)">Remove</button>
             </div>
             <div id="item">
                 <img src="../Images/coke-image.jpg" id="coke" alt="">
-                        <h4 id="cola">COLA</h4>
-                        <h4 id="cola-price">Price: $2.50</h4>
-                        <button type="button" class="addcart">Remove</button>
+                <h4 id="cola">COLA</h4>
+                <h4 id="cola-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="2" onclick="removeMenuItem(2)">Remove</button>
             </div>
             <div id="item"> 
                 <img src="../Images/drpepper-image.jpg" id="fanta" alt="">
-                    <h4 id="drpepper">DR.PEPPER</h4>
-                    <h4 id="drpepper-price">Price: $2.50</h4>
-                    <button type="button" class="addcart">Remove</button>
+                <h4 id="drpepper">DR.PEPPER</h4>
+                <h4 id="drpepper-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="3" onclick="removeMenuItem(3)">Remove</button>
             </div> 
             <div id="item">
                 <img src="../Images/download (1).jpg"  alt="">
                 <h4 id="fanta">FANTA</h4>
                 <h4 id="fanta-price">Price: $2.50</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="4" onclick="removeMenuItem(4)">Remove</button>
             </div> 
         </div>
-        <section id="burger-items">
-            <div id="drinks-heading">
-                <h2>BURGERS</h2>
-            </div>
-            <div id="beverage-img">
-                <div id="buritem">
-                    <img src="../Images/singlecheeseburger.jpg"  id="sprite" alt="">
-                    <h4 id="chzburger">CHEESEBURGER</h4>
-                    <h4 id="chzburger-price">Price: $2</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div>
-                <div id="buritem">
-                    <img src="../Images/dubburger.jpg" id="coke" alt="">
-                    <h4 id="double">DOUBLE CHEESEBURGER</h4>
-                    <h4 id="double-price">Price: $3.50</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div>
-                <div id="buritem"> 
-                    <img src="../Images/quarterpoundburger.jpg" id="fanta" alt="">
-                    <h4 id="pounder">QUARTER POUNDER W/ CHEESE</h4>
-                    <h4 id="pounder-price">Price: $5</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div> 
-                <div id="buritem">
-                    <img src="../Images/bacburger.jpg"  alt="">
-                    <h4 id="bacburger">BACON CHEESEBURGER</h4>
-                    <h4 id="bacburger-price">Price: $2.50</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div> 
-    </section>
-    <section id="app-items">
-        <div id="drinks-heading">
-            <h2>APPETIZERS</h2>
-        </div>
-        <div id="beverage-img">
+
+        <!-- BURGERS -->
+        <div id="burger-items">
             <div id="buritem">
-                <img src="../Images/fries.jpg"  id="sprite" alt="">
+                <img src="../Images/singlecheeseburger.jpg" id="sprite" alt="">
+                <h4 id="chzburger">CHEESEBURGER</h4>
+                <h4 id="chzburger-price">Price: $2</h4>
+                <button type="button" class="remove-item" data-item-id="5" onclick="removeMenuItem(5)">Remove</button>
+            </div>
+            <div id="buritem">
+                <img src="../Images/dubburger.jpg" id="coke" alt="">
+                <h4 id="double">DOUBLE CHEESEBURGER</h4>
+                <h4 id="double-price">Price: $3.50</h4>
+                <button type="button" class="remove-item" data-item-id="6" onclick="removeMenuItem(6)">Remove</button>
+            </div>
+            <div id="buritem"> 
+                <img src="../Images/quarterpoundburger.jpg" id="fanta" alt="">
+                <h4 id="pounder">QUARTER POUNDER W/ CHEESE</h4>
+                <h4 id="pounder-price">Price: $5</h4>
+                <button type="button" class="remove-item" data-item-id="7" onclick="removeMenuItem(7)">Remove</button>
+            </div> 
+            <div id="buritem">
+                <img src="../Images/bacburger.jpg"  alt="">
+                <h4 id="bacburger">BACON CHEESEBURGER</h4>
+                <h4 id="bacburger-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="8" onclick="removeMenuItem(8)">Remove</button>
+            </div> 
+        </div>
+
+        <!-- APPETIZERS -->
+        <div id="app-items">
+            <div id="buritem">
+                <img src="../Images/fries.jpg" id="sprite" alt="">
                 <h4 id="fries">FRIES</h4>
                 <h4 id="fries-price">Price: $2</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="9" onclick="removeMenuItem(9)">Remove</button>
             </div>
             <div id="buritem">
                 <img src="../Images/mozzerellasticks.jpg" id="coke" alt="">
                 <h4 id="mossticks">MOZZERELLA STICKS</h4>
                 <h4 id="mossticks-price">Price: $2.75</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="10" onclick="removeMenuItem(10)">Remove</button>
             </div>
             <div id="buritem"> 
                 <img src="../Images/onionrings.jpg" id="fanta" alt="">
                 <h4 id="onionrings">ONION RINGS</h4>
                 <h4 id="onionrrings-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="11" onclick="removeMenuItem(11)">Remove</button>
             </div> 
             <div id="buritem">
                 <img src="../Images/salad.jpg"  alt="">
                 <h4 id="salad">SALAD</h4>
                 <h4 id="salad-price">Price: $2.50</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="12" onclick="removeMenuItem(12)">Remove</button>
             </div> 
-    </section>
-    <section id="shake-items" style="padding-bottom: 3cm;">
-        <div id="drinks-heading">
-            <h2>MILK SHAKES</h2>
         </div>
-        <div id="beverage-img">
+
+        <!-- MILK SHAKES -->
+        <div id="shake-items">
             <div id="buritem">
-                <img src="../Images/vinillashake.jpg"  id="sprite" alt="">
+                <img src="../Images/vinillashake.jpg" id="sprite" alt="">
                 <h4 id="vinillashake">VINILLA SHAKE</h4>
                 <h4 id="vinillashake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="13" onclick="removeMenuItem(13)">Remove</button>
             </div>
             <div id="buritem">
                 <img src="../Images/cocoshake.jpg" id="coke" alt="">
                 <h4 id="cocoshake">CHOCOLATE SHAKE</h4>
                 <h4 id="cocoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="14" onclick="removeMenuItem(14)">Remove</button>
             </div>
             <div id="buritem"> 
                 <img src="../Images/strawberryshake.jpg" id="fanta" alt="">
                 <h4 id="strawberryshake">STRAWBERRY SHAKE</h4>
                 <h4 id="strawberryshake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="15" onclick="removeMenuItem(15)">Remove</button>
             </div> 
             <div id="buritem">
                 <img src="../Images/oreoshake.jpg"  alt="">
                 <h4 id="oreoshake">OREOSHAKE</h4>
                 <h4 id="oreoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="16" onclick="removeMenuItem(16)">Remove</button>
             </div> 
+        </div>
     </section>
     <section id="copyrightbs">
         <div>
@@ -154,8 +147,33 @@
         </div>
     </section>
     <script>
-      
+        function removeMenuItem(itemId) {
+            const itemElement = document.querySelector(`[data-item-id="${itemId}"]`);
+            if (itemElement) {
+                itemElement.remove();
+            }
 
+            storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
+            localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
+
+            alert('Item removed from the menu.');
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+            const menuList = document.getElementById('menu-items');
+            storedMenuItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `
+                    <div id="buritem">
+                        <h4>${item.name}</h4>
+                        <button type="button" class="remove-item" data-item-id="${item.id}" onclick="removeMenuItem(${item.id})">Remove</button>
+                    </div>
+                `;
+                menuList.appendChild(itemElement);
+            });
+        });
     </script>
-        </body>
-    </html>
+</body>
+</html>

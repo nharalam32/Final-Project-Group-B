@@ -55,6 +55,7 @@
     <div>
         <button onclick="signout()" id="sign-out-button" type="button">Sign Out</button>
 
+
     </div>
 </section>
         <div id="foot">
@@ -76,7 +77,21 @@
         </div>
     </section>
     <script>
+    function signout() {
+        localStorage.removeItem("isLoggedIn");
     
+    // Alternatively, you can set it to 0 or null
+    // localStorage.setItem("isLoggedIn", "0");
+
+    // Redirect to the login page or another appropriate location
+    window.location.href = "../html/login.html";
+}
+
+
+    function redirect_signin () {
+        window.location.href = "../html/login.html"
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
     // Retrieve customer name from URL parameters
     var urlParams = new URLSearchParams(window.location.search);
