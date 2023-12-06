@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Three Guys Menu</title>
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/admin-access.css">
 </head>
 <body>
     <section>
@@ -140,7 +140,7 @@
                 <button type="button" class="remove-item" data-item-id="16" onclick="removeMenuItem(16)">Remove</button>
             </div> 
         </div>
-    </section>
+    
     <section id="hotdog-items" style="padding-bottom: 3cm;">
         <div id="hotdog-heading">
             <h2>HOT DOGS</h2>
@@ -171,8 +171,27 @@
                 <button type="button" class="remove-item" data-item-id="16" onclick="removeMenuItem(20)">Remove</button>
             </div> 
     </div>
+</section>
     <section id="copyrightbs">
         <div>
             <p>@copyright 2023 THREE GUYS LLC</p>
         </div>
     </section>
+    <script>
+
+          function removeMenuItem(itemId) {
+    // Remove the item from localStorage
+    let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+    storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
+    localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
+
+    // Notify the user that the item was removed
+    alert('Item removed from the menu.');
+
+    // Dispatch a custom event for other pages to listen
+    const removeEvent = new CustomEvent('itemRemoved', { detail: { itemId } });
+    document.dispatchEvent(removeEvent);
+}
+</script>
+</body>
+</html>
