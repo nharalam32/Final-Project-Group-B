@@ -147,33 +147,19 @@
         </div>
     </section>
     <script>
-        function removeMenuItem(itemId) {
-            const itemElement = document.querySelector(`[data-item-id="${itemId}"]`);
-            if (itemElement) {
-                itemElement.remove();
-            }
+         function removeMenuItem(itemId) {
+    // Remove the item from localStorage
+    let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+    storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
+    localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
 
-            storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
-            localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
+    // Notify the user that the item was removed
+    alert('Item removed from the menu.');
 
-            alert('Item removed from the menu.');
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-
-            const menuList = document.getElementById('menu-items');
-            storedMenuItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.innerHTML = `
-                    <div id="buritem">
-                        <h4>${item.name}</h4>
-                        <button type="button" class="remove-item" data-item-id="${item.id}" onclick="removeMenuItem(${item.id})">Remove</button>
-                    </div>
-                `;
-                menuList.appendChild(itemElement);
-            });
-        });
+    // Dispatch a custom event for other pages to listen
+    const removeEvent = new CustomEvent('itemRemoved', { detail: { itemId } });
+    document.dispatchEvent(removeEvent);
+}
     </script>
 </body>
 </html>
