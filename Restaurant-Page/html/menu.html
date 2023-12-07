@@ -179,6 +179,15 @@
                 <button type="button" class="addcart">ADD TO CART</button>
             </div> 
     </div>
+    <div class="menu-item" data-item-id="item1">
+        Menu Item 1
+    </div>
+    <div class="menu-item" data-item-id="item2">
+        Menu Item 2
+    </div>
+    <div class="menu-item" data-item-id="item3">
+        Menu Item 3
+    </div>
     </section>
     <section id="cart-container">
         <div id="cart">
@@ -209,6 +218,15 @@
     </section>
 
 <script>
+     var hiddenItems = JSON.parse(localStorage.getItem('hiddenItems')) || [];
+
+// Hide items based on the stored information
+    hiddenItems.forEach(function(itemId) {
+        var item = document.querySelector(`[data-item-id="${itemId}"]`);
+        if (item) {
+            item.style.display = 'none';
+        }
+    });
     document.addEventListener("DOMContentLoaded", function () {
         var cart = [];
 
