@@ -171,6 +171,9 @@
                 <button type="button" class="remove-item" data-item-id="20" onclick="removeMenuItem(20)">Remove</button>
             </div> 
     </div>
+    <button onclick="toggleMenuItem('item1')">Toggle Item 1</button>
+    <button onclick="toggleMenuItem('item2')">Toggle Item 2</button>
+    <button onclick="toggleMenuItem('item3')">Toggle Item 3</button>
 </section>
     <section id="copyrightbs">
         <div>
@@ -178,27 +181,20 @@
         </div>
     </section>
     <script>
-   function removeMenuItem(itemId) {
-        // Remove the item from localStorage
-        let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-        storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
-        localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
+
+          function removeMenuItem(itemId) {
+    // Remove the item from localStorage
+    let storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+    storedMenuItems = storedMenuItems.filter(item => item.id !== itemId);
+    localStorage.setItem('menuItems', JSON.stringify(storedMenuItems));
 
         // Notify the user that the item was removed
         alert('Item removed from the menu.');
 
-        // Dispatch a custom event for other pages to listen
-        const removeEvent = new CustomEvent('itemRemoved', { detail: { itemId } });
-        document.dispatchEvent(removeEvent);
-    }
-
-    function hideItem(itemId) {
-        // Hide the corresponding item div on the menu.html page
-        const itemDiv = document.querySelector(`#buritem[data-item-id="${itemId}"]`);
-        if (itemDiv) {
-            itemDiv.style.display = 'none';
-        }
-    }
+    // Dispatch a custom event for other pages to listen
+    const removeEvent = new CustomEvent('itemRemoved', { detail: { itemId } });
+    document.dispatchEvent(removeEvent);
+}
 </script>
 </body>
 </html>

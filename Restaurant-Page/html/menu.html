@@ -179,6 +179,15 @@
                 <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div> 
     </div>
+    <div class="menu-item" data-item-id="item1">
+        Menu Item 1
+    </div>
+    <div class="menu-item" data-item-id="item2">
+        Menu Item 2
+    </div>
+    <div class="menu-item" data-item-id="item3">
+        Menu Item 3
+    </div>
     </section>
     <section id="cart-container">
         <div id="cart">
@@ -209,6 +218,32 @@
     </section>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var cart = [];
+
+
+        var addToCartButtons = document.querySelectorAll(".addcart");
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var itemName = this.parentNode.querySelector("h4").textContent;
+                var priceElement = this.parentNode.querySelector("h4[id$='-price']");
+                var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
+                var existingItem = cart.find(item => item.name === itemName);
+
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        name: itemName,
+                        price: itemPrice,
+                        quantity: 1
+                    });
+                }
+                displayCart();
+            });
+        });
+    });
         document.addEventListener("DOMContentLoaded", function () {
     var cart = [];
 
