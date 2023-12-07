@@ -181,6 +181,23 @@
         </div>
     </section>
     <script>
+        function toggleMenuItem(itemId) {
+            var hiddenItems = JSON.parse(localStorage.getItem('hiddenItems')) || [];
+
+            // Toggle the visibility
+            var index = hiddenItems.indexOf(itemId);
+            if (index === -1) {
+                hiddenItems.push(itemId);
+            } else {
+                hiddenItems.splice(index, 1);
+            }
+
+            // Update localStorage with the new hidden items
+            localStorage.setItem('hiddenItems', JSON.stringify(hiddenItems));
+
+            // Reload the menu page to apply changes
+            window.location.href = 'menu.html';
+        }
 
           function removeMenuItem(itemId) {
     // Remove the item from localStorage
