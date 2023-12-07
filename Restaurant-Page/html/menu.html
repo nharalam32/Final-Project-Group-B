@@ -218,6 +218,16 @@
     </section>
 
 <script>
+    var hiddenItems = JSON.parse(localStorage.getItem('hiddenItems')) || [];
+
+    // Hide items based on the stored information
+    hiddenItems.forEach(function(itemId) {
+        var item = document.querySelector(`[data-item-id="${itemId}"]`);
+        if (item) {
+            item.style.display = 'none';
+        }
+    });
+
     document.addEventListener("DOMContentLoaded", function () {
         var cart = [];
 
