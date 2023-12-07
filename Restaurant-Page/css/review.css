@@ -50,11 +50,19 @@
  #submit {
     text-align: center;
  }
+ img {
+  width: 2cm;
+  height: 2cm;
+  border-radius: .75cm;
+ }
  #stars {
     margin-top: 1cm;
     display: flex;
     justify-content: center;
     margin-bottom: 1cm;
+ }
+ #opinions {
+  text-align: center;
  }
  h1 {
     margin-right: .5cm;
