@@ -127,25 +127,25 @@
                 <img src="../Images/vinillashake.jpg"  id="sprite" alt="">
                 <h4 id="vinillashake">VINILLA SHAKE</h4>
                 <h4 id="vinillashake-price">Price: $3</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button"  class="addcart">ADD TO CART</button>
             </div>
             <div id="buritem">
                 <img src="../Images/cocoshake.jpg" id="coke" alt="">
                 <h4 id="cocoshake">CHOCOLATE SHAKE</h4>
                 <h4 id="cocoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div>
             <div id="buritem"> 
                 <img src="../Images/strawberryshake.jpg" id="fanta" alt="">
                 <h4 id="strawberryshake">STRAWBERRY SHAKE</h4>
                 <h4 id="strawberryshake-price">Price: $3</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div> 
             <div id="buritem">
                 <img src="../Images/oreoshake.jpg"  alt="">
                 <h4 id="oreoshake">OREOSHAKE</h4>
                 <h4 id="oreoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div> 
             
     </section>
@@ -158,25 +158,25 @@
                 <img src="../Images/reghotdog.webp"  alt="">
                 <h4 id="reghotdog">REGULAR HOT DOG</h4>
                 <h4 id="oreoshake-price">Price: $1.50</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div> 
             <div id="buritem">
                 <img src="../Images/bachotdog.webp"  alt="">
                 <h4 id="oreoshake">BACON HOT DOG</h4>
                 <h4 id="oreoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div> 
             <div id="buritem">
                 <img src="../Images/corndog.jpg"  alt="">
                 <h4 id="reghotdog">CORN DOG</h4>
                 <h4 id="oreoshake-price">Price: $1</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="19" class="addcart">ADD TO CART</button>
             </div> 
             <div id="buritem">
                 <img src="../Images/prezeldog.webp"  alt="">
                 <h4 id="reghotdog">PREZEL DOG</h4>
                 <h4 id="oreoshake-price">Price: $2</h4>
-                <button type="button" class="addcart">ADD TO CART</button>
+                <button type="button" data-item-id="20" class="addcart">ADD TO CART</button>
             </div> 
     </div>
     </section>
@@ -209,32 +209,6 @@
     </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var cart = [];
-
-
-        var addToCartButtons = document.querySelectorAll(".addcart");
-        addToCartButtons.forEach(function (button) {
-            button.addEventListener("click", function () {
-                var itemName = this.parentNode.querySelector("h4").textContent;
-                var priceElement = this.parentNode.querySelector("h4[id$='-price']");
-                var itemPrice = priceElement ? parseFloat(priceElement.textContent.replace("Price: $", "")) : 0;
-                var existingItem = cart.find(item => item.name === itemName);
-
-
-                if (existingItem) {
-                    existingItem.quantity++;
-                } else {
-                    cart.push({
-                        name: itemName,
-                        price: itemPrice,
-                        quantity: 1
-                    });
-                }
-                displayCart();
-            });
-        });
-    });
         document.addEventListener("DOMContentLoaded", function () {
     var cart = [];
 
@@ -344,6 +318,34 @@ function relocate () {
     console.log("Before relocate. isLoggedIn:", isLoggedIn, typeof isLoggedIn);
 
 }
+function hideItem(itemId) {
+                const itemDiv = document.querySelector(`[data-item-id="${itemId}"]`);
+                if (itemDiv) {
+                    itemDiv.style.display = 'none';
+                }
+            }
+
+            document.addEventListener('itemRemoved', function (event) {
+                const removedItemId = event.detail.itemId;
+                hideItem(removedItemId);
+            });
+
+            // Retrieve menu items from localStorage
+            const storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+            // Iterate over stored items and display them
+            storedMenuItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.id = 'buritem';
+                itemDiv.setAttribute('data-item-id', item.id);
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="">
+                    <h4>${item.name}</h4>
+                    <h4>${item.price}</h4>
+                    <button type="button" class="addcart">ADD TO CART</button>
+                `;
+                document.getElementById('menu-items').appendChild(itemDiv);
+            });
 function redirect_signin () {
     window.location.href="../html/login.html"
 }
