@@ -57,9 +57,9 @@
     </div>
 </section>
 <style>
-    /* Additional CSS for button styling */
+    
     #sign-out-button {
-        font-size: 1em; /* 5 times bigger */
+        font-size: 1em; 
         width: px;
         height: px;
         padding: 10px 20px;
@@ -104,6 +104,7 @@
         });
         function signout () {
             localStorage.setItem("isLoggedIn", "false");
+            window.location.href = "homepage.html";
         }
     </script>
 </body>
