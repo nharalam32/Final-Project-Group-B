@@ -45,6 +45,33 @@ body {
     margin-left: 11cm;
     margin-right: 2cm;
 }
+#sign-out-button {
+    font-size: 1em; 
+    width: px;
+    height: px;
+    padding: 10px 20px;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#sign-out-button:hover {
+    background-color: red;
+}
+#departure-prompt button {
+    width: 6cm;
+    height: 1cm;
+    border-radius: 1cm;
+    border: 0;
+    background-color: white;
+    color: #C92027;
+    font-size: 15px;
+    margin-bottom: 1cm;
+    
+}
 #sign-but {
     width: 4cm;
     height: 1cm;
@@ -111,6 +138,9 @@ a {
     margin-bottom: 1cm;
     color: white;
     font-size: 20px;
+}
+#order-details p {
+    margin-bottom: 1cm;
 }
 #copyrightbs {
     background-color: #C92027;

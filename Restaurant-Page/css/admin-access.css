@@ -58,6 +58,18 @@ body {
     color: white;
     font-size: 15px;
 }
+#bur-item {
+    display: flex;
+}
+#burger-items {
+    display: flex;
+}
+#app-items {
+    display: flex;
+}
+#shake-items {
+    display: flex;
+}
 button {
     cursor: pointer;
 }
@@ -101,7 +113,7 @@ h4 {
     margin-top: 4px;
 }
 #buritem {
-    margin-top: .5cm;
+    margin-top: 1cm;
     margin-left: 2cm;
     
 }
@@ -204,7 +216,6 @@ h4 {
 #copyrightbs {
     background-color: white;
     padding-top: 3px;
-    padding-bottom: 3px;
     text-align: center;
     color: black;
 }

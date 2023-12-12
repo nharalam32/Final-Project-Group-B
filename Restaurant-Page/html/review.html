@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>how are we doing?</title>
+    <link rel="stylesheet" href="../css/review.css">
+</head>
+<body>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: Helvetica;
+    src: url('fonts/Helvetica-Black\ Black.ttf') format(ttf);
+  }
+  
+  html {
+    font-family: Helvetica;
+  }
+  
+  body {
+    background-color: #C92027;
+    margin-top: 3cm;
+    color: white;
+  }
+  
+  h2 {
+    margin-bottom: 1cm; 
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 10cm;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  label {
+    margin-top: .5cm;
+    margin-bottom: .5cm;
+  }
+  input {
+    height: .75cm;
+    height: 1cm;
+    border: 0;
+    border-radius: .5cm;
+    padding-left: 15px;
+  }
+ textarea {
+    padding-left: .5cm;
+    padding-top: .2cm;
+    border: 0;
+    padding-bottom: .5cm;
+ }
+ #submit {
+    text-align: center;
+ }
+ #stars {
+    margin-top: 1cm;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1cm;
+ }
+ h1 {
+    margin-right: .5cm;
+
+ }
+ h1:hover, h1:focus, h1.active {
+  cursor: pointer;
+  color: yellow;
+}
+button:hover {
+    cursor: pointer;
+}
+ #submit-but {
+    width: 6cm;
+    height: 1cm;
+    color: white;
+    background-color: #C92027;
+    border-radius: .5cm;
+    border-color: white;
+ }
+    </style>
+    <section id="opinions" style="margin-bottom: 3cm; margin-top: 1cm;">
+      <h2 style="margin-bottom: 2cm;">WHAT DO OTHERS HAVE TO SAY ABOUT THREE GUYS?</h2>
+      <div id="person1" style="display: flex; padding-left: 11cm;">
+          <img src="../Images/person1.jpg" alt="">
+          <p style="padding-top: .75cm; padding-left: 1cm;">GREAT PLACE TO GRAB A BITE TO EAT!</p>
+      </div>
+      <div id="person2" style="display: flex; padding-top: 1cm; padding-bottom: 1cm; padding-left: 11cm;">
+          <img src="../Images/person2.jpg" alt="">
+          <p style="padding-top: .75cm; padding-left: 1cm;">FOOD TASTED GREAT!</p>
+      </div>
+      <div id="person3" style="display: flex; padding-left: 11cm;">
+          <img src="../Images/person3.jpg" alt="">
+          <p style="padding-top: .75cm; padding-left: 1cm;">SMALL SELECTION OF ITEMS,<br>
+             BUT WELL WORTH THE MONEY! WOULD DEFINITELY RECOMMEND TO ANYONE</p>
+      </div>
+    </section>
+    <form action="">
+        <label for="fname">First Name:</label>
+        <input type="text">
+        <label for="lname">Last Name:</label>
+        <input type="text">
+        <label for="items">What items did you order?</label>
+        <input type="text">
+        <label for="comment">What did you like? How can we improve?</label>
+        <textarea></textarea>
+    </form>
+    <div id="stars">
+        <h1 onclick="toggleStar(1)">&star;</h1>
+        <h1 onclick="toggleStar(2)">&star;</h1>
+        <h1 onclick="toggleStar(3)">&star;</h1>
+        <h1 onclick="toggleStar(4)">&star;</h1>
+        <h1 onclick="toggleStar(5)">&star;</h1>
+    </div>
+    <div id="submit">
+        <button type="button" id="submit-but" onclick="submit()">Submit Review</button>
+    </div>
+    </section>
+    <script>
+
+function toggleStar(starNumber) {
+            const stars = document.querySelectorAll('#stars h1');
+            
+            stars.forEach((star, index) => {
+                star.classList.toggle('active', index < starNumber);
+            });
+        }
+        function submit () {
+            alert("thank you for your feedback!")
+            window.location.href = "../html/homepage.html"
+        }
+    </script>
+    </body>
+    </html>

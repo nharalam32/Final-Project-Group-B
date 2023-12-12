@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: Helvetica;
+    src: url('fonts/Helvetica-Black\ Black.ttf') format(ttf);
+  }
+  
+  html {
+    font-family: Helvetica;
+  }
+  
+  body {
+    background-color: #C92027;
+    margin-top: 3cm;
+    color: white;
+  }
+  
+  h2 {
+    margin-bottom: 1cm; 
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 10cm;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  label {
+    margin-top: .5cm;
+    margin-bottom: .5cm;
+  }
+  input {
+    height: .75cm;
+    height: 1cm;
+    border: 0;
+    border-radius: .5cm;
+    padding-left: 15px;
+  }
+ textarea {
+    padding-left: .5cm;
+    padding-top: .2cm;
+    border: 0;
+    padding-bottom: .5cm;
+ }
+ #submit {
+    text-align: center;
+ }
+ img {
+  width: 2cm;
+  height: 2cm;
+  border-radius: .75cm;
+ }
+ #stars {
+    margin-top: 1cm;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1cm;
+ }
+ #opinions {
+  text-align: center;
+ }
+ h1 {
+    margin-right: .5cm;
+
+ }
+ h1:hover, h1:focus, h1:active {
+  cursor: pointer;
+  color: yellow;
+}
+
+ #submit-but {
+    width: 6cm;
+    height: 1cm;
+    color: white;
+    background-color: #C92027;
+    border-radius: .5cm;
+    border-color: white;
+ }

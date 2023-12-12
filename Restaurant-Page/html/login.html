@@ -57,7 +57,7 @@
             function login() {
                 var email = document.getElementById("email").value;
                 var password = document.getElementById("password").value;
-                
+
                 var storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
                 var matchingAccount = storedAccounts.find(function (account) {
@@ -66,7 +66,7 @@
 
                 if (email !== "" && password !== "") {
                     if (matchingAccount) {
-                        localStorage.setItem("isLoggedIn", "true");
+                        localStorage.setItem("isLoggedIn", "1");
                         window.location.href = "homepage.html";
                     } else if (email === "admin@example.com" && password === "admin123") {
                         window.location.href = "admin-access.html";
@@ -74,8 +74,8 @@
                         alert("Incorrect email or password. Please try again.");
                     }
                 } else {
-                    alert("Please fill out both username and password fields.");
-                }   
+                    alert("Please fill out both email and password fields.");
+                }
             }
         </script>
     </body>

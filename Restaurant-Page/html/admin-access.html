@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Guys Menu</title>
-    <link rel="stylesheet" href="../css/menu.css">
+    <title>Admin - Three Guys Menu</title>
+    <link rel="stylesheet" href="../css/admin-access.css">
 </head>
 <body>
     <section>
@@ -28,128 +28,173 @@
     <div id="menu-heading">
         <h1>Admin Access</h1>
     </div>
-    <section id="menu-items">
-        <div id="drinks-heading">
-            <h2>BEVERAGES</h2>
-        </div>
+    <section id="menu-items" style="margin-top: 1cm;">
         <div id="beverage-img">
             <div id="item">
-                <img src="../Images/sprite-image.jpg" id="sprite" alt="">
-                    <h4 id="sprite">SPRITE</h4>
-                    <h4 id="sprite-price">Price: $2.50</h4>
-                    <button type="button" class="addcart">Remove</button>
+                <img src="../Images/sprite-image.jpg"  alt="">
+                <h4 >SPRITE</h4>
+                <h4 id="sprite-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="1" onclick="toggleMenuItem('item1')">Remove</button>
             </div>
             <div id="item">
                 <img src="../Images/coke-image.jpg" id="coke" alt="">
-                        <h4 id="cola">COLA</h4>
-                        <h4 id="cola-price">Price: $2.50</h4>
-                        <button type="button" class="addcart">Remove</button>
+                <h4 id="cola">COLA</h4>
+                <h4 id="cola-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="2" onclick="toggleMenuItem('item2')">Remove</button>
             </div>
             <div id="item"> 
                 <img src="../Images/drpepper-image.jpg" id="fanta" alt="">
-                    <h4 id="drpepper">DR.PEPPER</h4>
-                    <h4 id="drpepper-price">Price: $2.50</h4>
-                    <button type="button" class="addcart">Remove</button>
+                <h4 id="drpepper">DR.PEPPER</h4>
+                <h4 id="drpepper-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="3" onclick="toggleMenuItem('item3')">Remove</button>
             </div> 
             <div id="item">
                 <img src="../Images/download (1).jpg"  alt="">
                 <h4 id="fanta">FANTA</h4>
                 <h4 id="fanta-price">Price: $2.50</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="4" onclick="toggleMenuItem('item4')">Remove</button>
             </div> 
         </div>
-        <section id="burger-items">
-            <div id="drinks-heading">
-                <h2>BURGERS</h2>
+
+        <!-- BURGERS -->
+        <div id="burger-items">
+            <div id="item">
+                <img src="../Images/singlecheeseburger.jpg" id="singlecheeseburger"  alt="">
+                <h4 id="chzburger">CHEESEBURGER</h4>
+                <h4 id="chzburger-price">Price: $2</h4>
+                <button type="button" class="remove-item" data-item-id="5" onclick="toggleMenuItem('item5')">Remove</button>
             </div>
-            <div id="beverage-img">
-                <div id="buritem">
-                    <img src="../Images/singlecheeseburger.jpg"  id="sprite" alt="">
-                    <h4 id="chzburger">CHEESEBURGER</h4>
-                    <h4 id="chzburger-price">Price: $2</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div>
-                <div id="buritem">
-                    <img src="../Images/dubburger.jpg" id="coke" alt="">
-                    <h4 id="double">DOUBLE CHEESEBURGER</h4>
-                    <h4 id="double-price">Price: $3.50</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div>
-                <div id="buritem"> 
-                    <img src="../Images/quarterpoundburger.jpg" id="fanta" alt="">
-                    <h4 id="pounder">QUARTER POUNDER W/ CHEESE</h4>
-                    <h4 id="pounder-price">Price: $5</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div> 
-                <div id="buritem">
-                    <img src="../Images/bacburger.jpg"  alt="">
-                    <h4 id="bacburger">BACON CHEESEBURGER</h4>
-                    <h4 id="bacburger-price">Price: $2.50</h4>
-                    <button type="button" class="addcart">Remove</button>
-                </div> 
-    </section>
-    <section id="app-items">
-        <div id="drinks-heading">
-            <h2>APPETIZERS</h2>
+            <div id="item">
+                <img src="../Images/dubburger.jpg"  alt="">
+                <h4 id="double">DOUBLE CHEESEBURGER</h4>
+                <h4 id="double-price">Price: $3.50</h4>
+                <button type="button" class="remove-item" data-item-id="6" onclick="toggleMenuItem('item6')">Remove</button>
+            </div>
+            <div id="item"> 
+                <img src="../Images/quarterpoundburger.jpg"  alt="">
+                <h4 id="pounder">QUARTER POUNDER W/ CHEESE</h4>
+                <h4 id="pounder-price">Price: $5</h4>
+                <button type="button" class="remove-item" data-item-id="7" onclick="toggleMenuItem('item7')">Remove</button>
+            </div> 
+            <div id="item">
+                <img src="../Images/bacburger.jpg"  alt="">
+                <h4 id="bacburger">BACON CHEESEBURGER</h4>
+                <h4 id="bacburger-price">Price: $2.50</h4>
+                <button type="button" class="remove-item" data-item-id="8" onclick="toggleMenuItem('item8')">Remove</button>
+            </div> 
         </div>
-        <div id="beverage-img">
-            <div id="buritem">
-                <img src="../Images/fries.jpg"  id="sprite" alt="">
+
+        <!-- APPETIZERS -->
+        <div id="app-items">
+            <div id="item">
+                <img src="../Images/fries.jpg"  alt="">
                 <h4 id="fries">FRIES</h4>
                 <h4 id="fries-price">Price: $2</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="9" onclick="toggleMenuItem('item9')">Remove</button>
             </div>
-            <div id="buritem">
+            <div id="item">
                 <img src="../Images/mozzerellasticks.jpg" id="coke" alt="">
                 <h4 id="mossticks">MOZZERELLA STICKS</h4>
                 <h4 id="mossticks-price">Price: $2.75</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="10" onclick="toggleMenuItem('item10')">Remove</button>
             </div>
-            <div id="buritem"> 
+            <div id="item"> 
                 <img src="../Images/onionrings.jpg" id="fanta" alt="">
                 <h4 id="onionrings">ONION RINGS</h4>
                 <h4 id="onionrrings-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="11" onclick="toggleMenuItem('item11')">Remove</button>
             </div> 
-            <div id="buritem">
+            <div id="item">
                 <img src="../Images/salad.jpg"  alt="">
                 <h4 id="salad">SALAD</h4>
                 <h4 id="salad-price">Price: $2.50</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="12" onclick="toggleMenuItem('item12')">Remove</button>
             </div> 
-    </section>
-    <section id="shake-items" style="padding-bottom: 3cm;">
-        <div id="drinks-heading">
-            <h2>MILK SHAKES</h2>
         </div>
-        <div id="beverage-img">
-            <div id="buritem">
-                <img src="../Images/vinillashake.jpg"  id="sprite" alt="">
+
+        <!-- MILK SHAKES -->
+        <div id="shake-items">
+            <div id="item">
+                <img src="../Images/vinillashake.jpg"  alt="">
                 <h4 id="vinillashake">VINILLA SHAKE</h4>
                 <h4 id="vinillashake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="13" onclick="toggleMenuItem('item13')">Remove</button>
             </div>
-            <div id="buritem">
+            <div id="item">
                 <img src="../Images/cocoshake.jpg" id="coke" alt="">
                 <h4 id="cocoshake">CHOCOLATE SHAKE</h4>
                 <h4 id="cocoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="14" onclick="toggleMenuItem('item14')">Remove</button>
             </div>
-            <div id="buritem"> 
+            <div id="item"> 
                 <img src="../Images/strawberryshake.jpg" id="fanta" alt="">
                 <h4 id="strawberryshake">STRAWBERRY SHAKE</h4>
                 <h4 id="strawberryshake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="15" onclick="toggleMenuItem('item15')">Remove</button>
             </div> 
-            <div id="buritem">
+            <div id="item">
                 <img src="../Images/oreoshake.jpg"  alt="">
                 <h4 id="oreoshake">OREOSHAKE</h4>
                 <h4 id="oreoshake-price">Price: $3</h4>
-                <button type="button" class="addcart">Remove</button>
+                <button type="button" class="remove-item" data-item-id="16" onclick="toggleMenuItem('item16')">Remove</button>
             </div> 
-    </section>
+        </div>
+    
+    <section id="hotdog-items" style="padding-bottom: 3cm;">
+        <div id="hotdog-heading">
+            <h2>HOT DOGS</h2>
+        </div>
+        <div id="dog-images">
+            <div id="item">
+                <img src="../Images/reghotdog.webp"  alt="">
+                <h4 id="reghotdog">REGULAR HOT DOG</h4>
+                <h4 id="oreoshake-price">Price: $1.50</h4>
+                <button type="button" class="remove-item" data-item-id="17" onclick="toggleMenuItem('item17')">Remove</button>
+            </div> 
+            <div id="item">
+                <img src="../Images/bachotdog.webp"  alt="">
+                <h4 id="oreoshake">BACON HOT DOG</h4>
+                <h4 id="oreoshake-price">Price: $3</h4>
+                <button type="button" class="remove-item" data-item-id="18" onclick="toggleMenuItem('item18')">Remove</button>
+            </div> 
+            <div id="item">
+                <img src="../Images/corndog.jpg"  alt="">
+                <h4 id="reghotdog">CORN DOG</h4>
+                <h4 id="oreoshake-price">Price: $1</h4>
+                <button type="button" class="remove-item" data-item-id="19" onclick="toggleMenuItem('item19')">Remove</button>
+            </div> 
+            <div id="item">
+                <img src="../Images/prezeldog.webp"  alt="">
+                <h4 id="reghotdog">PREZEL DOG</h4>
+                <h4 id="oreoshake-price">Price: $2</h4>
+                <button type="button" class="remove-item" data-item-id="20" onclick="toggleMenuItem('item20')">Remove</button>
+            </div> 
+    </div>
+    
+</section>
     <section id="copyrightbs">
         <div>
             <p>@copyright 2023 THREE GUYS LLC</p>
         </div>
     </section>
+    <script>
+        function toggleMenuItem(itemId) {
+            var hiddenItems = JSON.parse(localStorage.getItem('hiddenItems')) || [];
+
+            // Toggle the visibility
+            var index = hiddenItems.indexOf(itemId);
+            if (index === -1) {
+                hiddenItems.push(itemId);
+            } else {
+                hiddenItems.splice(index, 1);
+            }
+
+            // Update localStorage with the new hidden items
+            localStorage.setItem('hiddenItems', JSON.stringify(hiddenItems));
+
+            // Reload the menu page to apply changes
+            window.location.href = 'menu.html';
+        }
+</script>
+</body>
+</html>
