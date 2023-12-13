@@ -58,6 +58,26 @@
 
     </div>
 </section>
+<style>
+    /* Additional CSS for button styling */
+    #sign-out-button {
+        font-size: 1em; /* 5 times bigger */
+        width: px;
+        height: px;
+        padding: 10px 20px;
+        background-color: grey;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #sign-out-button:hover {
+        background-color: red;
+    }
+</style>
+
         <div id="foot">
             <div id="leftside">
                 <h1>THREE GUYS</h1>
@@ -97,7 +117,7 @@
             var cartParam = urlParams.get("cart");
             var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
 
-            
+            // Display cart items below the receipt header on the receipt page
             var orderDetailsSection = document.getElementById("order-details");
 
     cart.forEach(function (item) {
@@ -106,15 +126,15 @@
         orderDetailsSection.appendChild(itemElement);
     });
 
-            
+            // Retrieve tip amount from URL parameters
             var tipAmountParam = urlParams.get("tipAmount");
             var tipAmount = tipAmountParam ? parseFloat(tipAmountParam) : 0;
 
-    
+    // Calculate and display the total with tip
     var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     var totalWithTip = total + tipAmount;
 
-    
+    // Add spacing between order details, tip, and total
     var spacingElement = document.createElement("p");
     spacingElement.style.marginBottom = "1.5cm";
     orderDetailsSection.appendChild(spacingElement);
@@ -131,27 +151,27 @@
             window.location.href = "../html/review.html"
         }
         document.addEventListener("DOMContentLoaded", function () {
-    
+    // Retrieve customer name from URL parameters
     var urlParams = new URLSearchParams(window.location.search);
     var customerNameParam = urlParams.get("customerName");
     var customerName = customerNameParam ? decodeURIComponent(customerNameParam) : "";
 
     if (!customerName) {
         console.error("Error: Customer name is not defined.");
-        return; 
+        return; // Abort further execution if customer name is not defined
     }
 
-    
+    // Display customer name on the receipt
     var pleasureHeading = document.getElementById("pleasure-heading");
     var customerNameElement = document.createElement("p");
     customerNameElement.textContent = `Thank you, ${customerName}, for your order!`;
     pleasureHeading.appendChild(customerNameElement);
 
-    
+    // Retrieve cart data from URL parameters
     var cartParam = urlParams.get("cart");
     var cart = cartParam ? JSON.parse(decodeURIComponent(cartParam)) : [];
 
-    
+    // Display cart items below the receipt header on the receipt page
     var orderDetailsSection = document.getElementById("order-details");
 
     cart.forEach(function (item) {
@@ -160,15 +180,15 @@
         orderDetailsSection.appendChild(itemElement);
     });
 
-    
+    // Retrieve tip amount from URL parameters
     var tipAmountParam = urlParams.get("tipAmount");
     var tipAmount = tipAmountParam ? parseFloat(tipAmountParam) : 0;
 
-    
+    // Calculate and display the total with tip
     var total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     var totalWithTip = total + tipAmount;
 
-    
+    // Add spacing between order details, tip, and total
     var spacingElement = document.createElement("p");
     spacingElement.style.marginBottom = "1.5cm";
     orderDetailsSection.appendChild(spacingElement);
