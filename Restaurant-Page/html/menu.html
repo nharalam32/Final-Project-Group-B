@@ -334,7 +334,7 @@
 
     var proceedToPaymentButton = document.getElementById("addcart");
     proceedToPaymentButton.addEventListener("click", function () {
-        // Pass the cart data to the payment.html page
+        
         var cartParam = encodeURIComponent(JSON.stringify(cart));
         window.location.href = "payment.html?cart=" + cartParam;
     });
@@ -367,10 +367,10 @@ function hideItem(itemId) {
                 hideItem(removedItemId);
             });
 
-            // Retrieve menu items from localStorage
+            
             const storedMenuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
 
-            // Iterate over stored items and display them
+            
             storedMenuItems.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.id = 'buritem';

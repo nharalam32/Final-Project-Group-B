@@ -85,14 +85,14 @@
         window.location.href="../html/login.html"
     }
     document.addEventListener("DOMContentLoaded", function() {
-    // Check if the user is logged in
+    
     var isLoggedIn = localStorage.getItem("isLoggedIn");
 
-    // If user is logged in, hide or remove the sign-in button
+   
     if (isLoggedIn === "1") {
         var signinButton = document.getElementById("signin-but");
         if (signinButton) {
-            signinButton.style.display = "none"; // or use .remove() if you want to remove the button
+            signinButton.style.display = "none"; 
         }
     }
 });
